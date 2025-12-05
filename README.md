@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestro Álbum Digital</title>
+    <title>Álbum Digital de Jorge y Pauline</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -35,7 +35,6 @@
             padding: 0 20px;
         }
         
-        /* Header */
         header {
             background: var(--gradient);
             color: white;
@@ -60,13 +59,13 @@
         }
         
         .couple-name {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 300;
             letter-spacing: 3px;
             margin-bottom: 20px;
+            font-family: 'Brush Script MT', cursive;
         }
         
-        /* Navegación */
         nav {
             display: flex;
             justify-content: center;
@@ -95,7 +94,6 @@
             transform: translateY(-3px);
         }
         
-        /* Secciones */
         .section {
             display: none;
             padding: 40px 0;
@@ -132,7 +130,6 @@
             border-radius: 2px;
         }
         
-        /* Galería de fotos */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -180,7 +177,24 @@
             transform: translateY(0);
         }
         
-        /* Reproductor de música */
+        .delete-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: none;
+        }
+        
+        .photo-item:hover .delete-btn {
+            display: block;
+        }
+        
         .music-player {
             background: white;
             border-radius: 20px;
@@ -204,6 +218,7 @@
             border-radius: 10px;
             background: #f8f8f8;
             transition: background 0.3s ease;
+            position: relative;
         }
         
         .song-item:hover {
@@ -230,7 +245,6 @@
             color: #666;
         }
         
-        /* Historias */
         .stories-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -243,6 +257,7 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: transform 0.3s ease;
+            position: relative;
         }
         
         .story-card:hover {
@@ -271,7 +286,6 @@
             line-height: 1.7;
         }
         
-        /* Área de subida */
         .upload-area {
             background: white;
             border-radius: 20px;
@@ -355,7 +369,85 @@
         .music-option i { color: #6a5af9; }
         .story-option i { color: #4ecdc4; }
         
-        /* Footer */
+        .config-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-top: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .config-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .backup-options {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .backup-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: #f0f0f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .backup-btn:hover {
+            background: #e0e0e0;
+            transform: translateY(-3px);
+        }
+        
+        .export-btn {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .import-btn {
+            background: var(--accent-color);
+            color: white;
+        }
+        
         footer {
             background: var(--dark-color);
             color: white;
@@ -375,7 +467,6 @@
             50% { transform: scale(1.1); }
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
             .gallery {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -398,9 +489,12 @@
                 padding: 10px 20px;
                 font-size: 0.9rem;
             }
+            
+            .backup-options {
+                flex-direction: column;
+            }
         }
         
-        /* Modal para previsualización */
         .modal {
             display: none;
             position: fixed;
@@ -435,6 +529,27 @@
         .modal-close:hover {
             color: var(--primary-color);
         }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            display: none;
+        }
+        
+        .alert.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        
+        .alert.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -442,10 +557,10 @@
         <div class="container">
             <div class="logo">
                 <i class="fas fa-heart"></i>
-                <h1>Nuestro Álbum Digital</h1>
+                <h1>Álbum Digital de Jorge y Pauline</h1>
                 <i class="fas fa-heart"></i>
             </div>
-            <div class="couple-name">Alex & María</div>
+            <div class="couple-name">Jorge ❤️ Pauline</div>
             <p>Un espacio para guardar nuestros momentos especiales</p>
             
             <nav>
@@ -459,7 +574,10 @@
                     <i class="fas fa-book-open"></i> Historias
                 </button>
                 <button class="nav-btn" data-section="subir">
-                    <i class="fas fa-cloud-upload-alt"></i> Subir Contenido
+                    <i class="fas fa-cloud-upload-alt"></i> Subir
+                </button>
+                <button class="nav-btn" data-section="configuracion">
+                    <i class="fas fa-cog"></i> Configuración
                 </button>
             </nav>
         </div>
@@ -469,6 +587,7 @@
         <!-- Sección de Fotos -->
         <section id="fotos" class="section active">
             <h2 class="section-title">Nuestros Momentos</h2>
+            <div class="alert" id="photoAlert"></div>
             <div class="gallery" id="photoGallery">
                 <!-- Las fotos se cargarán aquí dinámicamente -->
             </div>
@@ -477,12 +596,12 @@
         <!-- Sección de Música -->
         <section id="musica" class="section">
             <h2 class="section-title">Nuestra Banda Sonora</h2>
+            <div class="alert" id="musicAlert"></div>
             <div class="music-player">
                 <div class="now-playing">
-                    <h3>Reproduciendo ahora: <span id="currentSong">Canción Especial</span></h3>
+                    <h3>Reproduciendo ahora: <span id="currentSong">Selecciona una canción</span></h3>
                     <div class="audio-controls">
                         <audio id="audioPlayer" controls>
-                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
                             Tu navegador no soporta el elemento de audio.
                         </audio>
                     </div>
@@ -497,6 +616,7 @@
         <!-- Sección de Historias -->
         <section id="historias" class="section">
             <h2 class="section-title">Nuestras Historias</h2>
+            <div class="alert" id="storyAlert"></div>
             <div class="stories-container" id="storiesContainer">
                 <!-- Las historias se cargarán aquí dinámicamente -->
             </div>
@@ -507,7 +627,7 @@
             <h2 class="section-title">Comparte un Recuerdo</h2>
             <div class="upload-area">
                 <h3>Sube fotos, canciones o historias a nuestro álbum</h3>
-                <p>Selecciona el tipo de contenido que quieres compartir</p>
+                <p>Todos los archivos se guardarán localmente en tu navegador</p>
                 
                 <div class="upload-options">
                     <div class="upload-option photo-option" data-type="photo">
@@ -528,14 +648,56 @@
                     <i class="fas fa-cloud-upload-alt upload-icon"></i>
                     <h4>Arrastra y suelta archivos aquí</h4>
                     <p>o haz clic para seleccionar archivos</p>
-                    <p class="file-types">Soporta: JPG, PNG, MP3, PDF, TXT</p>
-                    <input type="file" id="fileInput" multiple style="display: none;">
+                    <p class="file-types">Soporta: JPG, PNG, MP3, WAV</p>
+                    <input type="file" id="fileInput" multiple style="display: none;" accept="image/*,audio/*">
                     <button class="upload-btn" id="browseBtn">
                         <i class="fas fa-folder-open"></i> Buscar Archivos
                     </button>
                 </div>
                 
                 <div id="uploadStatus"></div>
+            </div>
+        </section>
+        
+        <!-- Sección de Configuración -->
+        <section id="configuracion" class="section">
+            <h2 class="section-title">Configuración y Respaldo</h2>
+            <div class="config-section">
+                <h3><i class="fas fa-database"></i> Gestión de Datos</h3>
+                <div class="alert" id="configAlert"></div>
+                
+                <div class="form-group">
+                    <label for="storageInfo">Espacio utilizado:</label>
+                    <input type="text" id="storageInfo" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cloudinaryConfig">Configuración Cloudinary (Opcional):</label>
+                    <input type="text" id="cloudinaryConfig" placeholder="cloudinary://API_KEY:API_SECRET@CLOUD_NAME">
+                    <small>Configura Cloudinary para almacenamiento en la nube (gratuito hasta 25GB)</small>
+                </div>
+                
+                <div class="backup-options">
+                    <button class="backup-btn export-btn" id="exportBtn">
+                        <i class="fas fa-download"></i> Exportar Datos
+                    </button>
+                    <button class="backup-btn import-btn" id="importBtn">
+                        <i class="fas fa-upload"></i> Importar Datos
+                    </button>
+                    <button class="backup-btn" id="clearBtn" style="background: #ff6b8b; color: white;">
+                        <i class="fas fa-trash"></i> Limpiar Todo
+                    </button>
+                </div>
+                
+                <div class="form-group" style="margin-top: 30px;">
+                    <h4><i class="fas fa-info-circle"></i> Instrucciones para respaldo:</h4>
+                    <ol style="text-align: left; margin-top: 10px; padding-left: 20px;">
+                        <li>Exporta tus datos regularmente haciendo clic en "Exportar Datos"</li>
+                        <li>Guarda el archivo JSON en un lugar seguro</li>
+                        <li>Para restaurar, usa "Importar Datos" y selecciona el archivo</li>
+                        <li>Opcional: Configura Cloudinary para almacenar imágenes/audio en la nube</li>
+                    </ol>
+                </div>
             </div>
         </section>
     </main>
@@ -548,378 +710,790 @@
     
     <footer>
         <div class="container">
-            <p>Hecho con <span class="heart"><i class="fas fa-heart"></i></span> para guardar nuestros recuerdos</p>
-            <p>© 2023 - Nuestro Álbum Digital</p>
+            <p>Hecho con <span class="heart"><i class="fas fa-heart"></i></span> para Jorge y Pauline</p>
+            <p>© <span id="currentYear"></span> - Álbum Digital - Los datos se guardan en tu navegador</p>
         </div>
     </footer>
 
     <script>
-        // Datos iniciales del álbum (simulados)
-        const albumData = {
-            photos: [
-                { id: 1, src: "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80", caption: "Nuestro primer viaje juntos" },
-                { id: 2, src: "https://images.unsplash.com/photo-1529254479751-fbacb4c7a587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80", caption: "Celebrando nuestro aniversario" },
-                { id: 3, src: "https://images.unsplash.com/photo-1492684223066-e9e4aab4d25e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80", caption: "Atardecer en la playa" },
-                { id: 4, src: "https://images.unsplash.com/photo-1470252649374-6d73cd8cd714?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80", caption: "Noche de películas" },
-                { id: 5, src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80", caption: "Cena romántica" },
-                { id: 6, src: "https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80", caption: "Día de campo" }
-            ],
-            songs: [
-                { id: 1, title: "Nuestra Canción", artist: "Artista Especial", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
-                { id: 2, title: "Melodía de Amor", artist: "Banda Romántica", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
-                { id: 3, title: "Recuerdos", artist: "Cantante Favorito", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" }
-            ],
-            stories: [
-                { id: 1, title: "Cómo nos conocimos", date: "15 de Enero, 2022", content: "Fue en una cafetería cerca del parque. Ella llevaba un vestido azul y yo estaba leyendo mi libro favorito. Nuestras miradas se cruzaron y supe que ese momento cambiaría todo.", image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" },
-                { id: 2, title: "Nuestro primer viaje", date: "20 de Julio, 2022", content: "Fuimos a la montaña y pasamos tres días increíbles. Hicimos caminatas, cocinamos juntos y vimos las estrellas cada noche. Fue entonces cuando supe que quería pasar toda mi vida con ella.", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" },
-                { id: 3, title: "La sorpresa de cumpleaños", date: "5 de Noviembre, 2022", content: "Organicé una fiesta sorpresa con todos sus amigos. Su expresión cuando entró y todos gritaron '¡Feliz cumpleaños!' fue priceless. Ese día me di cuenta de lo mucho que la amo.", image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" }
-            ]
-        };
-
-        // Elementos del DOM
-        const sections = document.querySelectorAll('.section');
-        const navButtons = document.querySelectorAll('.nav-btn');
-        const photoGallery = document.getElementById('photoGallery');
-        const songList = document.getElementById('songList');
-        const storiesContainer = document.getElementById('storiesContainer');
-        const uploadBox = document.getElementById('uploadBox');
-        const fileInput = document.getElementById('fileInput');
-        const browseBtn = document.getElementById('browseBtn');
-        const uploadStatus = document.getElementById('uploadStatus');
-        const audioPlayer = document.getElementById('audioPlayer');
-        const currentSongElement = document.getElementById('currentSong');
-        const imageModal = document.getElementById('imageModal');
-        const modalImage = document.getElementById('modalImage');
-        const modalClose = document.getElementById('modalClose');
-        const uploadOptions = document.querySelectorAll('.upload-option');
-
-        // Inicializar la página
-        document.addEventListener('DOMContentLoaded', function() {
-            // Cargar datos iniciales
-            loadPhotos();
-            loadSongs();
-            loadStories();
+        // Sistema de almacenamiento persistente para GitHub Pages
+        class AlbumStorage {
+            constructor() {
+                this.STORAGE_KEYS = {
+                    PHOTOS: 'jorgePauline_photos',
+                    SONGS: 'jorgePauline_songs',
+                    STORIES: 'jorgePauline_stories',
+                    SETTINGS: 'jorgePauline_settings'
+                };
+                
+                this.init();
+            }
             
-            // Configurar navegación
-            setupNavigation();
+            init() {
+                // Inicializar datos si no existen
+                if (!this.getPhotos().length) {
+                    this.saveDefaultData();
+                }
+            }
             
-            // Configurar área de subida
-            setupUploadArea();
+            saveDefaultData() {
+                const defaultPhotos = [
+                    { 
+                        id: this.generateId(),
+                        src: "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80",
+                        caption: "Nuestro primer viaje juntos",
+                        date: new Date().toISOString(),
+                        uploadedBy: "Jorge"
+                    },
+                    { 
+                        id: this.generateId(),
+                        src: "https://images.unsplash.com/photo-1529254479751-fbacb4c7a587?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+                        caption: "Celebrando nuestro aniversario",
+                        date: new Date().toISOString(),
+                        uploadedBy: "Pauline"
+                    }
+                ];
+                
+                const defaultSongs = [
+                    {
+                        id: this.generateId(),
+                        title: "Nuestra Canción Especial",
+                        artist: "Artista Favorito",
+                        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+                        date: new Date().toISOString(),
+                        uploadedBy: "Jorge"
+                    }
+                ];
+                
+                const defaultStories = [
+                    {
+                        id: this.generateId(),
+                        title: "Cómo nos conocimos",
+                        content: "Jorge y Pauline se conocieron en una cafetería un día lluvioso. Fue amor a primera vista.",
+                        date: new Date().toISOString(),
+                        uploadedBy: "Ambos"
+                    }
+                ];
+                
+                localStorage.setItem(this.STORAGE_KEYS.PHOTOS, JSON.stringify(defaultPhotos));
+                localStorage.setItem(this.STORAGE_KEYS.SONGS, JSON.stringify(defaultSongs));
+                localStorage.setItem(this.STORAGE_KEYS.STORIES, JSON.stringify(defaultStories));
+            }
             
-            // Configurar reproductor de música
-            setupMusicPlayer();
+            // Métodos para fotos
+            getPhotos() {
+                return JSON.parse(localStorage.getItem(this.STORAGE_KEYS.PHOTOS) || '[]');
+            }
             
-            // Configurar modal de imágenes
-            setupImageModal();
-        });
-
-        // Configurar navegación entre secciones
-        function setupNavigation() {
-            navButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const targetSection = this.getAttribute('data-section');
+            savePhoto(photo) {
+                const photos = this.getPhotos();
+                photos.unshift(photo);
+                localStorage.setItem(this.STORAGE_KEYS.PHOTOS, JSON.stringify(photos));
+                return photo;
+            }
+            
+            deletePhoto(id) {
+                const photos = this.getPhotos().filter(photo => photo.id !== id);
+                localStorage.setItem(this.STORAGE_KEYS.PHOTOS, JSON.stringify(photos));
+                return photos;
+            }
+            
+            // Métodos para canciones
+            getSongs() {
+                return JSON.parse(localStorage.getItem(this.STORAGE_KEYS.SONGS) || '[]');
+            }
+            
+            saveSong(song) {
+                const songs = this.getSongs();
+                songs.unshift(song);
+                localStorage.setItem(this.STORAGE_KEYS.SONGS, JSON.stringify(songs));
+                return song;
+            }
+            
+            deleteSong(id) {
+                const songs = this.getSongs().filter(song => song.id !== id);
+                localStorage.setItem(this.STORAGE_KEYS.SONGS, JSON.stringify(songs));
+                return songs;
+            }
+            
+            // Métodos para historias
+            getStories() {
+                return JSON.parse(localStorage.getItem(this.STORAGE_KEYS.STORIES) || '[]');
+            }
+            
+            saveStory(story) {
+                const stories = this.getStories();
+                stories.unshift(story);
+                localStorage.setItem(this.STORAGE_KEYS.STORIES, JSON.stringify(stories));
+                return story;
+            }
+            
+            deleteStory(id) {
+                const stories = this.getStories().filter(story => story.id !== id);
+                localStorage.setItem(this.STORAGE_KEYS.STORIES, JSON.stringify(stories));
+                return stories;
+            }
+            
+            // Métodos generales
+            generateId() {
+                return Date.now().toString(36) + Math.random().toString(36).substr(2);
+            }
+            
+            exportData() {
+                const data = {
+                    photos: this.getPhotos(),
+                    songs: this.getSongs(),
+                    stories: this.getStories(),
+                    exportDate: new Date().toISOString(),
+                    couple: "Jorge y Pauline"
+                };
+                
+                return JSON.stringify(data, null, 2);
+            }
+            
+            importData(jsonString) {
+                try {
+                    const data = JSON.parse(jsonString);
                     
-                    // Actualizar botones activos
-                    navButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
+                    if (data.photos) localStorage.setItem(this.STORAGE_KEYS.PHOTOS, JSON.stringify(data.photos));
+                    if (data.songs) localStorage.setItem(this.STORAGE_KEYS.SONGS, JSON.stringify(data.songs));
+                    if (data.stories) localStorage.setItem(this.STORAGE_KEYS.STORIES, JSON.stringify(data.stories));
                     
-                    // Mostrar sección correspondiente
-                    sections.forEach(section => {
-                        section.classList.remove('active');
-                        if (section.id === targetSection) {
-                            section.classList.add('active');
-                        }
-                    });
+                    return true;
+                } catch (error) {
+                    console.error('Error importing data:', error);
+                    return false;
+                }
+            }
+            
+            clearAll() {
+                localStorage.removeItem(this.STORAGE_KEYS.PHOTOS);
+                localStorage.removeItem(this.STORAGE_KEYS.SONGS);
+                localStorage.removeItem(this.STORAGE_KEYS.STORIES);
+                this.saveDefaultData();
+                return true;
+            }
+            
+            getStorageInfo() {
+                let totalSize = 0;
+                
+                [this.STORAGE_KEYS.PHOTOS, this.STORAGE_KEYS.SONGS, this.STORAGE_KEYS.STORIES].forEach(key => {
+                    const data = localStorage.getItem(key);
+                    if (data) {
+                        totalSize += new Blob([data]).size;
+                    }
                 });
-            });
+                
+                return {
+                    photos: this.getPhotos().length,
+                    songs: this.getSongs().length,
+                    stories: this.getStories().length,
+                    size: this.formatBytes(totalSize)
+                };
+            }
+            
+            formatBytes(bytes, decimals = 2) {
+                if (bytes === 0) return '0 Bytes';
+                
+                const k = 1024;
+                const dm = decimals < 0 ? 0 : decimals;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+            }
         }
 
-        // Cargar fotos en la galería
-        function loadPhotos() {
-            photoGallery.innerHTML = '';
-            albumData.photos.forEach(photo => {
-                const photoElement = document.createElement('div');
-                photoElement.className = 'photo-item';
-                photoElement.innerHTML = `
+        // Aplicación principal
+        class AlbumApp {
+            constructor() {
+                this.storage = new AlbumStorage();
+                this.currentUser = "Jorge"; // Puedes cambiar esto según quién esté subiendo
+                
+                // Elementos del DOM
+                this.elements = {
+                    sections: document.querySelectorAll('.section'),
+                    navButtons: document.querySelectorAll('.nav-btn'),
+                    photoGallery: document.getElementById('photoGallery'),
+                    songList: document.getElementById('songList'),
+                    storiesContainer: document.getElementById('storiesContainer'),
+                    uploadBox: document.getElementById('uploadBox'),
+                    fileInput: document.getElementById('fileInput'),
+                    browseBtn: document.getElementById('browseBtn'),
+                    uploadStatus: document.getElementById('uploadStatus'),
+                    audioPlayer: document.getElementById('audioPlayer'),
+                    currentSongElement: document.getElementById('currentSong'),
+                    imageModal: document.getElementById('imageModal'),
+                    modalImage: document.getElementById('modalImage'),
+                    modalClose: document.getElementById('modalClose'),
+                    uploadOptions: document.querySelectorAll('.upload-option'),
+                    exportBtn: document.getElementById('exportBtn'),
+                    importBtn: document.getElementById('importBtn'),
+                    clearBtn: document.getElementById('clearBtn'),
+                    storageInfo: document.getElementById('storageInfo'),
+                    configAlert: document.getElementById('configAlert'),
+                    photoAlert: document.getElementById('photoAlert'),
+                    musicAlert: document.getElementById('musicAlert'),
+                    storyAlert: document.getElementById('storyAlert')
+                };
+                
+                this.init();
+            }
+            
+            init() {
+                // Establecer año actual
+                document.getElementById('currentYear').textContent = new Date().getFullYear();
+                
+                // Cargar datos
+                this.loadPhotos();
+                this.loadSongs();
+                this.loadStories();
+                this.updateStorageInfo();
+                
+                // Configurar eventos
+                this.setupNavigation();
+                this.setupUploadArea();
+                this.setupMusicPlayer();
+                this.setupImageModal();
+                this.setupBackupButtons();
+                
+                // Mostrar mensaje de bienvenida
+                this.showAlert(this.elements.photoAlert, '¡Bienvenidos Jorge y Pauline! Todos los archivos se guardarán en tu navegador.', 'success');
+            }
+            
+            setupNavigation() {
+                this.elements.navButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const targetSection = button.getAttribute('data-section');
+                        
+                        // Actualizar botones activos
+                        this.elements.navButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+                        
+                        // Mostrar sección correspondiente
+                        this.elements.sections.forEach(section => {
+                            section.classList.remove('active');
+                            if (section.id === targetSection) {
+                                section.classList.add('active');
+                                
+                                // Actualizar información de almacenamiento en configuración
+                                if (targetSection === 'configuracion') {
+                                    this.updateStorageInfo();
+                                }
+                            }
+                        });
+                    });
+                });
+            }
+            
+            loadPhotos() {
+                const photos = this.storage.getPhotos();
+                this.elements.photoGallery.innerHTML = '';
+                
+                if (photos.length === 0) {
+                    this.elements.photoGallery.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                            <i class="fas fa-images" style="font-size: 3rem; color: #ccc; margin-bottom: 15px;"></i>
+                            <h3 style="color: #666;">No hay fotos aún</h3>
+                            <p>Sube tu primera foto haciendo clic en la sección "Subir"</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                photos.forEach(photo => {
+                    const photoElement = this.createPhotoElement(photo);
+                    this.elements.photoGallery.appendChild(photoElement);
+                });
+            }
+            
+            createPhotoElement(photo) {
+                const div = document.createElement('div');
+                div.className = 'photo-item';
+                div.innerHTML = `
                     <img src="${photo.src}" alt="${photo.caption}" data-id="${photo.id}">
                     <div class="photo-caption">
                         <p>${photo.caption}</p>
+                        <small>Subido por ${photo.uploadedBy} • ${new Date(photo.date).toLocaleDateString()}</small>
                     </div>
+                    <button class="delete-btn" data-id="${photo.id}" title="Eliminar foto">
+                        <i class="fas fa-times"></i>
+                    </button>
                 `;
-                photoElement.querySelector('img').addEventListener('click', function() {
-                    openImageModal(this.src, photo.caption);
+                
+                // Evento para abrir imagen en modal
+                div.querySelector('img').addEventListener('click', () => {
+                    this.openImageModal(photo.src, photo.caption);
                 });
-                photoGallery.appendChild(photoElement);
-            });
-        }
-
-        // Cargar canciones en la lista
-        function loadSongs() {
-            songList.innerHTML = '';
-            albumData.songs.forEach((song, index) => {
-                const songElement = document.createElement('div');
-                songElement.className = `song-item ${index === 0 ? 'active' : ''}`;
-                songElement.innerHTML = `
+                
+                // Evento para eliminar foto
+                div.querySelector('.delete-btn').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (confirm('¿Estás seguro de que quieres eliminar esta foto?')) {
+                        this.deletePhoto(photo.id);
+                    }
+                });
+                
+                return div;
+            }
+            
+            loadSongs() {
+                const songs = this.storage.getSongs();
+                this.elements.songList.innerHTML = '';
+                
+                if (songs.length === 0) {
+                    this.elements.songList.innerHTML = `
+                        <div style="text-align: center; padding: 30px; color: #666;">
+                            <i class="fas fa-music" style="font-size: 2.5rem; margin-bottom: 15px; opacity: 0.5;"></i>
+                            <p>No hay canciones aún</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                songs.forEach((song, index) => {
+                    const songElement = this.createSongElement(song, index === 0);
+                    this.elements.songList.appendChild(songElement);
+                });
+                
+                // Configurar primera canción para reproducción
+                if (songs.length > 0) {
+                    this.setCurrentSong(songs[0]);
+                }
+            }
+            
+            createSongElement(song, isActive = false) {
+                const div = document.createElement('div');
+                div.className = `song-item ${isActive ? 'active' : ''}`;
+                div.innerHTML = `
                     <i class="fas fa-music"></i>
                     <div class="song-info">
                         <div class="song-title">${song.title}</div>
                         <div class="song-artist">${song.artist}</div>
+                        <small>Subido por ${song.uploadedBy} • ${new Date(song.date).toLocaleDateString()}</small>
                     </div>
                     <i class="fas fa-play"></i>
+                    <button class="delete-btn" data-id="${song.id}" title="Eliminar canción" style="position: absolute; right: 10px; top: 10px; background: rgba(255,0,0,0.7);">
+                        <i class="fas fa-times"></i>
+                    </button>
                 `;
-                songElement.addEventListener('click', function() {
-                    playSong(song, this);
+                
+                div.addEventListener('click', (e) => {
+                    if (!e.target.classList.contains('delete-btn')) {
+                        this.playSong(song, div);
+                    }
                 });
-                songList.appendChild(songElement);
-            });
-        }
-
-        // Cargar historias
-        function loadStories() {
-            storiesContainer.innerHTML = '';
-            albumData.stories.forEach(story => {
-                const storyElement = document.createElement('div');
-                storyElement.className = 'story-card';
-                storyElement.innerHTML = `
-                    <img src="${story.image}" alt="${story.title}" class="story-img">
+                
+                div.querySelector('.delete-btn').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (confirm('¿Estás seguro de que quieres eliminar esta canción?')) {
+                        this.deleteSong(song.id);
+                    }
+                });
+                
+                return div;
+            }
+            
+            loadStories() {
+                const stories = this.storage.getStories();
+                this.elements.storiesContainer.innerHTML = '';
+                
+                if (stories.length === 0) {
+                    this.elements.storiesContainer.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                            <i class="fas fa-book-open" style="font-size: 3rem; color: #ccc; margin-bottom: 15px;"></i>
+                            <h3 style="color: #666;">No hay historias aún</h3>
+                            <p>Escribe tu primera historia en la sección "Subir"</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                stories.forEach(story => {
+                    const storyElement = this.createStoryElement(story);
+                    this.elements.storiesContainer.appendChild(storyElement);
+                });
+            }
+            
+            createStoryElement(story) {
+                const div = document.createElement('div');
+                div.className = 'story-card';
+                div.innerHTML = `
                     <div class="story-content">
                         <h3>${story.title}</h3>
-                        <span class="story-date">${story.date}</span>
+                        <span class="story-date">
+                            <i class="far fa-calendar"></i> ${new Date(story.date).toLocaleDateString()} • 
+                            Subido por ${story.uploadedBy}
+                        </span>
                         <p class="story-text">${story.content}</p>
+                        <button class="delete-btn" data-id="${story.id}" style="margin-top: 15px; background: rgba(255,0,0,0.7); color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">
+                            <i class="fas fa-trash"></i> Eliminar historia
+                        </button>
                     </div>
                 `;
-                storiesContainer.appendChild(storyElement);
-            });
-        }
-
-        // Configurar área de subida
-        function setupUploadArea() {
-            // Abrir selector de archivos al hacer clic en el botón o en el área
-            browseBtn.addEventListener('click', () => fileInput.click());
-            uploadBox.addEventListener('click', () => fileInput.click());
-            
-            // Manejar la selección de archivos
-            fileInput.addEventListener('change', handleFileSelect);
-            
-            // Manejar arrastrar y soltar
-            uploadBox.addEventListener('dragover', function(e) {
-                e.preventDefault();
-                this.classList.add('dragover');
-            });
-            
-            uploadBox.addEventListener('dragleave', function() {
-                this.classList.remove('dragover');
-            });
-            
-            uploadBox.addEventListener('drop', function(e) {
-                e.preventDefault();
-                this.classList.remove('dragover');
                 
-                if (e.dataTransfer.files.length) {
-                    handleFiles(e.dataTransfer.files);
-                }
-            });
-            
-            // Configurar opciones de subida
-            uploadOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    const type = this.getAttribute('data-type');
-                    
-                    // Mostrar mensaje según el tipo seleccionado
-                    let message = '';
-                    if (type === 'photo') {
-                        message = 'Selecciona una foto para subir a nuestro álbum';
-                    } else if (type === 'music') {
-                        message = 'Sube una canción especial para nuestra banda sonora';
-                    } else if (type === 'story') {
-                        message = 'Escribe una historia sobre nosotros';
-                        // Para historias, mostrar un área de texto
-                        showStoryTextArea();
-                        return;
+                div.querySelector('.delete-btn').addEventListener('click', () => {
+                    if (confirm('¿Estás seguro de que quieres eliminar esta historia?')) {
+                        this.deleteStory(story.id);
                     }
-                    
-                    uploadStatus.innerHTML = `<p style="color: var(--secondary-color); margin-top: 20px;"><i class="fas fa-info-circle"></i> ${message}</p>`;
-                    fileInput.click();
                 });
-            });
-        }
-
-        // Manejar la selección de archivos
-        function handleFileSelect(e) {
-            const files = e.target.files;
-            handleFiles(files);
-        }
-
-        // Procesar archivos seleccionados
-        function handleFiles(files) {
-            uploadStatus.innerHTML = '';
-            
-            if (files.length === 0) return;
-            
-            // Limitar a 5 archivos a la vez
-            const fileArray = Array.from(files).slice(0, 5);
-            
-            fileArray.forEach((file, index) => {
-                const reader = new FileReader();
                 
-                reader.onload = function(e) {
-                    // Simular subida de archivo
-                    simulateUpload(file, e.target.result);
+                return div;
+            }
+            
+            setupUploadArea() {
+                // Abrir selector de archivos
+                this.elements.browseBtn.addEventListener('click', () => this.elements.fileInput.click());
+                this.elements.uploadBox.addEventListener('click', () => this.elements.fileInput.click());
+                
+                // Manejar selección de archivos
+                this.elements.fileInput.addEventListener('change', (e) => this.handleFileSelect(e));
+                
+                // Configurar drag and drop
+                this.elements.uploadBox.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    this.elements.uploadBox.classList.add('dragover');
+                });
+                
+                this.elements.uploadBox.addEventListener('dragleave', () => {
+                    this.elements.uploadBox.classList.remove('dragover');
+                });
+                
+                this.elements.uploadBox.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    this.elements.uploadBox.classList.remove('dragover');
+                    
+                    if (e.dataTransfer.files.length) {
+                        this.handleFiles(e.dataTransfer.files);
+                    }
+                });
+                
+                // Configurar opciones de subida
+                this.elements.uploadOptions.forEach(option => {
+                    option.addEventListener('click', () => {
+                        const type = option.getAttribute('data-type');
+                        
+                        if (type === 'story') {
+                            this.showStoryForm();
+                        } else {
+                            let message = type === 'photo' 
+                                ? 'Selecciona una foto para subir' 
+                                : 'Selecciona una canción para subir';
+                            
+                            this.showAlert(this.elements.uploadStatus, message, 'success');
+                            this.elements.fileInput.accept = type === 'photo' ? 'image/*' : 'audio/*';
+                            this.elements.fileInput.click();
+                        }
+                    });
+                });
+            }
+            
+            handleFileSelect(e) {
+                const files = Array.from(e.target.files);
+                if (files.length === 0) return;
+                
+                this.handleFiles(files);
+            }
+            
+            async handleFiles(files) {
+                this.elements.uploadStatus.innerHTML = '';
+                
+                for (const file of files.slice(0, 5)) { // Limitar a 5 archivos
+                    await this.processFile(file);
+                }
+                
+                this.elements.fileInput.value = ''; // Resetear input
+            }
+            
+            async processFile(file) {
+                return new Promise((resolve) => {
+                    const reader = new FileReader();
+                    
+                    reader.onload = (e) => {
+                        if (file.type.startsWith('image/')) {
+                            this.savePhotoFromFile(file, e.target.result);
+                        } else if (file.type.startsWith('audio/')) {
+                            this.saveSongFromFile(file, e.target.result);
+                        }
+                        resolve();
+                    };
+                    
+                    if (file.type.startsWith('image/') || file.type.startsWith('audio/')) {
+                        reader.readAsDataURL(file);
+                    } else {
+                        reader.readAsText(file);
+                        resolve();
+                    }
+                });
+            }
+            
+            savePhotoFromFile(file, dataUrl) {
+                const photo = {
+                    id: this.storage.generateId(),
+                    src: dataUrl,
+                    caption: `Foto subida por ${this.currentUser}`,
+                    date: new Date().toISOString(),
+                    uploadedBy: this.currentUser,
+                    fileName: file.name,
+                    fileSize: file.size
                 };
                 
-                if (file.type.startsWith('image/')) {
-                    reader.readAsDataURL(file);
-                } else if (file.type.startsWith('audio/')) {
-                    reader.readAsDataURL(file);
-                } else {
-                    reader.readAsText(file);
-                }
-            });
-        }
-
-        // Simular subida de archivo (en un caso real, aquí iría la lógica para subir a un servidor)
-        function simulateUpload(file, content) {
-            const fileId = Date.now();
-            const statusElement = document.createElement('div');
-            statusElement.className = 'upload-status-item';
-            statusElement.innerHTML = `
-                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px; background: #f0f0f0; border-radius: 10px; margin-bottom: 10px;">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <i class="fas fa-file" style="color: var(--primary-color);"></i>
-                        <span>${file.name}</span>
-                    </div>
-                    <span class="upload-progress">Subiendo...</span>
-                </div>
-            `;
-            
-            uploadStatus.appendChild(statusElement);
-            
-            // Simular progreso de subida
-            setTimeout(() => {
-                const progressElement = statusElement.querySelector('.upload-progress');
-                progressElement.innerHTML = '<i class="fas fa-check" style="color: green;"></i> Subido exitosamente';
-                progressElement.style.color = 'green';
+                this.storage.savePhoto(photo);
+                this.loadPhotos();
+                this.updateStorageInfo();
                 
-                // Agregar a la galería correspondiente según el tipo
-                if (file.type.startsWith('image/')) {
-                    addNewPhoto(content, `Foto subida el ${new Date().toLocaleDateString()}`);
-                } else if (file.type.startsWith('audio/')) {
-                    addNewSong(content, file.name.replace(/\.[^/.]+$/, ""), "Subido por ti");
-                }
-            }, 1500);
-        }
-
-        // Mostrar área de texto para historias
-        function showStoryTextArea() {
-            uploadStatus.innerHTML = `
-                <div style="margin-top: 30px; text-align: left;">
-                    <h4 style="color: var(--secondary-color); margin-bottom: 15px;">Escribe tu historia:</h4>
-                    <input type="text" id="storyTitle" placeholder="Título de la historia" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 10px; margin-bottom: 15px;">
-                    <textarea id="storyContent" placeholder="Comparte tu historia especial..." style="width: 100%; height: 200px; padding: 15px; border: 2px solid #ddd; border-radius: 10px; margin-bottom: 15px; resize: vertical;"></textarea>
-                    <button id="saveStoryBtn" class="upload-btn" style="margin-top: 0;">
-                        <i class="fas fa-save"></i> Guardar Historia
-                    </button>
-                </div>
-            `;
-            
-            document.getElementById('saveStoryBtn').addEventListener('click', saveStory);
-        }
-
-        // Guardar nueva historia
-        function saveStory() {
-            const title = document.getElementById('storyTitle').value;
-            const content = document.getElementById('storyContent').value;
-            
-            if (!title || !content) {
-                alert('Por favor, completa el título y el contenido de la historia');
-                return;
+                this.showAlert(this.elements.uploadStatus, 
+                    `✅ Foto "${file.name}" subida exitosamente`, 'success');
+                this.showAlert(this.elements.photoAlert, 
+                    `Nueva foto añadida por ${this.currentUser}`, 'success');
+                
+                // Cambiar a sección de fotos después de 2 segundos
+                setTimeout(() => {
+                    document.querySelector('[data-section="fotos"]').click();
+                }, 2000);
             }
             
-            // Agregar la nueva historia
-            const newStory = {
-                id: albumData.stories.length + 1,
-                title: title,
-                date: new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' }),
-                content: content,
-                image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-            };
+            saveSongFromFile(file, dataUrl) {
+                const song = {
+                    id: this.storage.generateId(),
+                    title: file.name.replace(/\.[^/.]+$/, ""), // Remover extensión
+                    artist: this.currentUser,
+                    src: dataUrl,
+                    date: new Date().toISOString(),
+                    uploadedBy: this.currentUser,
+                    fileName: file.name,
+                    fileSize: file.size
+                };
+                
+                this.storage.saveSong(song);
+                this.loadSongs();
+                this.updateStorageInfo();
+                
+                this.showAlert(this.elements.uploadStatus, 
+                    `✅ Canción "${song.title}" subida exitosamente`, 'success');
+                this.showAlert(this.elements.musicAlert, 
+                    `Nueva canción añadida por ${this.currentUser}`, 'success');
+            }
             
-            albumData.stories.unshift(newStory);
-            loadStories();
+            showStoryForm() {
+                this.elements.uploadStatus.innerHTML = `
+                    <div style="margin-top: 30px; text-align: left; background: #f9f9f9; padding: 25px; border-radius: 15px;">
+                        <h4 style="color: var(--secondary-color); margin-bottom: 15px;">
+                            <i class="fas fa-book"></i> Escribe una nueva historia
+                        </h4>
+                        <div class="form-group">
+                            <label for="storyTitle">Título:</label>
+                            <input type="text" id="storyTitle" placeholder="Ej: Nuestro primer viaje">
+                        </div>
+                        <div class="form-group">
+                            <label for="storyContent">Historia:</label>
+                            <textarea id="storyContent" rows="5" placeholder="Comparte tu historia especial..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="storyAuthor">Subido por:</label>
+                            <select id="storyAuthor" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 10px;">
+                                <option value="Jorge">Jorge</option>
+                                <option value="Pauline">Pauline</option>
+                                <option value="Ambos">Ambos</option>
+                            </select>
+                        </div>
+                        <button id="saveStoryBtn" class="upload-btn" style="margin-top: 10px;">
+                            <i class="fas fa-save"></i> Guardar Historia
+                        </button>
+                    </div>
+                `;
+                
+                document.getElementById('saveStoryBtn').addEventListener('click', () => this.saveStory());
+            }
             
-            uploadStatus.innerHTML = `<p style="color: green; margin-top: 20px;"><i class="fas fa-check-circle"></i> ¡Historia guardada exitosamente!</p>`;
+            saveStory() {
+                const title = document.getElementById('storyTitle').value;
+                const content = document.getElementById('storyContent').value;
+                const author = document.getElementById('storyAuthor').value;
+                
+                if (!title.trim() || !content.trim()) {
+                    alert('Por favor, completa el título y el contenido de la historia');
+                    return;
+                }
+                
+                const story = {
+                    id: this.storage.generateId(),
+                    title: title,
+                    content: content,
+                    date: new Date().toISOString(),
+                    uploadedBy: author
+                };
+                
+                this.storage.saveStory(story);
+                this.loadStories();
+                this.updateStorageInfo();
+                
+                this.showAlert(this.elements.uploadStatus, 
+                    `✅ Historia "${title}" guardada exitosamente`, 'success');
+                this.showAlert(this.elements.storyAlert, 
+                    `Nueva historia añadida por ${author}`, 'success');
+                
+                // Cambiar a sección de historias después de 2 segundos
+                setTimeout(() => {
+                    document.querySelector('[data-section="historias"]').click();
+                }, 2000);
+            }
             
-            // Cambiar a la sección de historias
-            document.querySelector('[data-section="historias"]').click();
-        }
-
-        // Agregar nueva foto
-        function addNewPhoto(src, caption) {
-            const newPhoto = {
-                id: albumData.photos.length + 1,
-                src: src,
-                caption: caption
-            };
+            deletePhoto(id) {
+                this.storage.deletePhoto(id);
+                this.loadPhotos();
+                this.updateStorageInfo();
+                this.showAlert(this.elements.photoAlert, 'Foto eliminada exitosamente', 'success');
+            }
             
-            albumData.photos.unshift(newPhoto);
-            loadPhotos();
-        }
-
-        // Agregar nueva canción
-        function addNewSong(src, title, artist) {
-            const newSong = {
-                id: albumData.songs.length + 1,
-                title: title,
-                artist: artist,
-                src: src
-            };
+            deleteSong(id) {
+                this.storage.deleteSong(id);
+                this.loadSongs();
+                this.updateStorageInfo();
+                this.showAlert(this.elements.musicAlert, 'Canción eliminada exitosamente', 'success');
+            }
             
-            albumData.songs.unshift(newSong);
-            loadSongs();
-        }
-
-        // Configurar reproductor de música
-        function setupMusicPlayer() {
-            // Reproducir primera canción por defecto
-            if (albumData.songs.length > 0) {
-                audioPlayer.src = albumData.songs[0].src;
-                currentSongElement.textContent = `${albumData.songs[0].title} - ${albumData.songs[0].artist}`;
+            deleteStory(id) {
+                this.storage.deleteStory(id);
+                this.loadStories();
+                this.updateStorageInfo();
+                this.showAlert(this.elements.storyAlert, 'Historia eliminada exitosamente', 'success');
+            }
+            
+            setupMusicPlayer() {
+                // Configurar eventos del reproductor
+                this.elements.audioPlayer.addEventListener('ended', () => {
+                    // Avanzar a la siguiente canción
+                    const songs = this.storage.getSongs();
+                    const currentIndex = songs.findIndex(song => 
+                        song.src === this.elements.audioPlayer.src);
+                    
+                    if (currentIndex < songs.length - 1) {
+                        this.playSong(songs[currentIndex + 1]);
+                    }
+                });
+            }
+            
+            setCurrentSong(song) {
+                this.elements.audioPlayer.src = song.src;
+                this.elements.currentSongElement.textContent = `${song.title} - ${song.artist}`;
+            }
+            
+            playSong(song, element = null) {
+                this.setCurrentSong(song);
+                this.elements.audioPlayer.play();
+                
+                // Actualizar elemento activo
+                document.querySelectorAll('.song-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                if (element) {
+                    element.classList.add('active');
+                }
+            }
+            
+            setupImageModal() {
+                this.elements.modalClose.addEventListener('click', () => {
+                    this.elements.imageModal.style.display = 'none';
+                });
+                
+                this.elements.imageModal.addEventListener('click', (e) => {
+                    if (e.target === this.elements.imageModal) {
+                        this.elements.imageModal.style.display = 'none';
+                    }
+                });
+            }
+            
+            openImageModal(src, caption) {
+                this.elements.modalImage.src = src;
+                this.elements.modalImage.alt = caption;
+                this.elements.imageModal.style.display = 'flex';
+            }
+            
+            setupBackupButtons() {
+                // Exportar datos
+                this.elements.exportBtn.addEventListener('click', () => {
+                    const data = this.storage.exportData();
+                    const blob = new Blob([data], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `album-jorge-pauline-${new Date().toISOString().split('T')[0]}.json`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    
+                    this.showAlert(this.elements.configAlert, 'Datos exportados exitosamente', 'success');
+                });
+                
+                // Importar datos
+                this.elements.importBtn.addEventListener('click', () => {
+                    const input = document.createElement('input');
+                    input.type = 'file';
+                    input.accept = '.json';
+                    
+                    input.onchange = (e) => {
+                        const file = e.target.files[0];
+                        const reader = new FileReader();
+                        
+                        reader.onload = (e) => {
+                            const success = this.storage.importData(e.target.result);
+                            
+                            if (success) {
+                                this.loadPhotos();
+                                this.loadSongs();
+                                this.loadStories();
+                                this.updateStorageInfo();
+                                this.showAlert(this.elements.configAlert, 'Datos importados exitosamente', 'success');
+                            } else {
+                                this.showAlert(this.elements.configAlert, 'Error al importar datos', 'error');
+                            }
+                        };
+                        
+                        reader.readAsText(file);
+                    };
+                    
+                    input.click();
+                });
+                
+                // Limpiar todo
+                this.elements.clearBtn.addEventListener('click', () => {
+                    if (confirm('¿ESTÁS SEGURO? Esto eliminará todas las fotos, canciones e historias y restaurará los datos por defecto.')) {
+                        this.storage.clearAll();
+                        this.loadPhotos();
+                        this.loadSongs();
+                        this.loadStories();
+                        this.updateStorageInfo();
+                        this.showAlert(this.elements.configAlert, 'Todos los datos han sido restablecidos', 'success');
+                    }
+                });
+            }
+            
+            updateStorageInfo() {
+                const info = this.storage.getStorageInfo();
+                this.elements.storageInfo.value = 
+                    `${info.photos} fotos, ${info.songs} canciones, ${info.stories} historias (${info.size})`;
+            }
+            
+            showAlert(element, message, type) {
+                element.textContent = message;
+                element.className = `alert ${type}`;
+                
+                // Ocultar alerta después de 5 segundos
+                setTimeout(() => {
+                    element.style.display = 'none';
+                }, 5000);
             }
         }
 
-        // Reproducir canción seleccionada
-        function playSong(song, element) {
-            // Actualizar elemento activo
-            document.querySelectorAll('.song-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            element.classList.add('active');
-            
-            // Actualizar reproductor
-            audioPlayer.src = song.src;
-            currentSongElement.textContent = `${song.title} - ${song.artist}`;
-            audioPlayer.play();
-        }
-
-        // Configurar modal de imágenes
-        function setupImageModal() {
-            modalClose.addEventListener('click', function() {
-                imageModal.style.display = 'none';
-            });
-            
-            imageModal.addEventListener('click', function(e) {
-                if (e.target === imageModal) {
-                    imageModal.style.display = 'none';
-                }
-            });
-        }
-
-        // Abrir modal con imagen
-        function openImageModal(src, caption) {
-            modalImage.src = src;
-            modalImage.alt = caption;
-            imageModal.style.display = 'flex';
-        }
+        // Inicializar la aplicación cuando se carga la página
+        document.addEventListener('DOMContentLoaded', () => {
+            window.albumApp = new AlbumApp();
+        });
     </script>
 </body>
 </html>
