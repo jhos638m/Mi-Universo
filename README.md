@@ -3,498 +3,814 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Álbum Digital de Jorge y Pauline</title>
+    <title>🤘 Rock Album | Jorge & Pauline 🎸</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Rock+Salt&family=Bebas+Neue&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --neon-pink: #ff00ff;
+            --neon-blue: #00ffff;
+            --neon-green: #00ff00;
+            --neon-yellow: #ffff00;
+            --rock-black: #0a0a0a;
+            --rock-gray: #1a1a1a;
+            --rock-red: #ff0033;
+            --rock-purple: #9d00ff;
+            --metal-gradient: linear-gradient(135deg, #ff0033 0%, #9d00ff 50%, #00ffff 100%);
+            --grunge-texture: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000000' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
-        
-        :root {
-            --primary-color: #ff6b8b;
-            --secondary-color: #6a5af9;
-            --accent-color: #4ecdc4;
-            --light-color: #fff9fb;
-            --dark-color: #333;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            --gradient: linear-gradient(135deg, #ff6b8b 0%, #6a5af9 100%);
-        }
-        
+
         body {
-            background-color: #f9f5f7;
-            color: var(--dark-color);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: var(--gradient);
+            background-color: var(--rock-black);
             color: white;
-            padding: 30px 0;
+            min-height: 100vh;
+            background-image: var(--grunge-texture);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 0, 51, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(157, 0, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Efectos de partículas */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+
+        /* Cursor personalizado */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--neon-pink);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 0, 255, 0.1);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s ease-out;
+            mix-blend-mode: difference;
+        }
+
+        /* Header con efecto de neón */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--neon-pink);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.3),
+                        inset 0 0 30px rgba(0, 255, 255, 0.1);
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--metal-gradient);
+            animation: scanline 2s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .logo-area {
             text-align: center;
-            box-shadow: var(--shadow);
-            border-radius: 0 0 30px 30px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            position: relative;
         }
-        
+
         .logo {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
+            font-family: 'Rock Salt', cursive;
+            font-size: 4.5rem;
+            background: var(--metal-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255, 0, 255, 0.5),
+                         0 0 40px rgba(0, 255, 255, 0.3);
+            position: relative;
+            display: inline-block;
+            animation: logoGlow 3s ease-in-out infinite alternate;
         }
-        
-        .logo i {
-            color: #ffeb3b;
+
+        @keyframes logoGlow {
+            0% {
+                text-shadow: 0 0 20px rgba(255, 0, 255, 0.5),
+                             0 0 40px rgba(0, 255, 255, 0.3);
+            }
+            100% {
+                text-shadow: 0 0 30px rgba(255, 0, 255, 0.8),
+                             0 0 60px rgba(0, 255, 255, 0.5),
+                             0 0 80px rgba(255, 255, 0, 0.3);
+            }
         }
-        
+
         .couple-name {
-            font-size: 1.8rem;
-            font-weight: 300;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-            font-family: 'Brush Script MT', cursive;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.8rem;
+            letter-spacing: 4px;
+            color: white;
+            text-shadow: 0 0 10px var(--neon-blue),
+                         0 0 20px var(--neon-blue);
+            margin: 15px 0;
+            position: relative;
         }
-        
+
+        .couple-name::before,
+        .couple-name::after {
+            content: '🎸';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            animation: guitarFloat 3s ease-in-out infinite alternate;
+        }
+
+        .couple-name::before {
+            left: -50px;
+        }
+
+        .couple-name::after {
+            right: -50px;
+        }
+
+        @keyframes guitarFloat {
+            0% { transform: translateY(-50%) rotate(-15deg); }
+            100% { transform: translateY(-50%) rotate(15deg); }
+        }
+
+        /* Navegación estilo concierto */
         nav {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-top: 25px;
+            gap: 25px;
+            margin-top: 30px;
             flex-wrap: wrap;
+            position: relative;
         }
-        
+
         .nav-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid transparent;
+            border-image: var(--metal-gradient);
+            border-image-slice: 1;
             color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-size: 1rem;
+            padding: 18px 35px;
+            border-radius: 0;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 1.5px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            min-width: 180px;
+            text-align: center;
         }
-        
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--metal-gradient);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .nav-btn:hover::before {
+            left: 0;
+        }
+
         .nav-btn:hover, .nav-btn.active {
-            background: white;
-            color: var(--primary-color);
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 0, 51, 0.4),
+                        0 0 20px rgba(157, 0, 255, 0.3),
+                        inset 0 0 15px rgba(255, 255, 255, 0.1);
+            color: white;
+            border-color: transparent;
         }
-        
+
+        .nav-btn i {
+            margin-right: 12px;
+            font-size: 1.3rem;
+        }
+
+        /* Secciones */
         .section {
             display: none;
-            padding: 40px 0;
-            animation: fadeIn 0.8s ease;
+            padding: 60px 0;
+            animation: slideUp 0.6s ease-out;
         }
-        
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .section.active {
             display: block;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
+
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
-            color: var(--primary-color);
-            font-size: 2.2rem;
+            margin-bottom: 50px;
             position: relative;
-            padding-bottom: 15px;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3.5rem;
+            letter-spacing: 3px;
+            color: transparent;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue), var(--neon-yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
-        
-        .section-title:after {
+
+        .section-title::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 200px;
             height: 4px;
-            background: var(--gradient);
+            background: var(--metal-gradient);
             border-radius: 2px;
+            box-shadow: 0 0 15px var(--neon-pink);
         }
-        
+
+        /* Galería estilo poster de concierto */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+            perspective: 1000px;
         }
-        
+
         .photo-item {
-            border-radius: 15px;
+            background: rgba(26, 26, 26, 0.9);
+            border: 3px solid;
+            border-image: linear-gradient(45deg, var(--neon-pink), var(--neon-blue)) 1;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
-            height: 250px;
             position: relative;
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            height: 350px;
         }
-        
+
         .photo-item:hover {
-            transform: translateY(-10px);
+            transform: translateY(-20px) rotateX(10deg) rotateY(-10deg);
+            box-shadow: 0 25px 50px rgba(255, 0, 51, 0.3),
+                        0 0 30px rgba(0, 255, 255, 0.2);
+            z-index: 10;
         }
-        
+
+        .photo-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 0, 255, 0.1) 50%, transparent 70%);
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .photo-item:hover::before {
+            opacity: 1;
+            animation: shine 1s ease;
+        }
+
+        @keyframes shine {
+            0% { background-position: -100px; }
+            100% { background-position: 300px; }
+        }
+
         .photo-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        
+
         .photo-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
-        
+
         .photo-caption {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 15px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 25px;
             transform: translateY(100%);
-            transition: transform 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 3;
         }
-        
+
         .photo-item:hover .photo-caption {
             transform: translateY(0);
         }
-        
+
         .delete-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255, 0, 0, 0.7);
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 0, 51, 0.9);
             color: white;
             border: none;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             cursor: pointer;
-            display: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 4;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
         }
-        
+
         .photo-item:hover .delete-btn {
-            display: block;
+            opacity: 1;
+            transform: scale(1);
         }
-        
+
+        .delete-btn:hover {
+            background: var(--neon-pink);
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 0 20px var(--neon-pink);
+        }
+
+        /* Reproductor estilo mesa de mezclas */
         .music-player {
-            background: white;
+            background: rgba(26, 26, 26, 0.9);
+            border: 3px solid;
+            border-image: linear-gradient(45deg, var(--neon-blue), var(--neon-green)) 1;
             border-radius: 20px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            max-width: 800px;
-            margin: 0 auto 40px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7),
+                        inset 0 0 30px rgba(0, 255, 255, 0.1);
         }
-        
+
+        .music-player::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--neon-blue), transparent 30%);
+            animation: rotate 10s linear infinite;
+            opacity: 0.1;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        .now-playing {
+            background: rgba(10, 10, 10, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 2px solid var(--neon-blue);
+            position: relative;
+            z-index: 2;
+        }
+
+        .now-playing h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        #currentSong {
+            color: var(--neon-green);
+            font-weight: 700;
+        }
+
+        audio {
+            width: 100%;
+            filter: invert(1) hue-rotate(180deg) saturate(2);
+            border-radius: 10px;
+            background: #000;
+            padding: 10px;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background: linear-gradient(45deg, #222, #000);
+        }
+
         .song-list {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            margin-top: 25px;
+            position: relative;
+            z-index: 2;
         }
-        
+
         .song-item {
+            background: rgba(40, 40, 40, 0.8);
+            border-left: 4px solid var(--neon-pink);
+            padding: 20px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
-            padding: 15px;
-            border-radius: 10px;
-            background: #f8f8f8;
-            transition: background 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
             position: relative;
+            overflow: hidden;
         }
-        
+
+        .song-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, var(--neon-pink), transparent);
+            transition: width 0.3s;
+            z-index: 1;
+        }
+
+        .song-item:hover::before {
+            width: 100%;
+        }
+
         .song-item:hover {
-            background: #f0f0f0;
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(255, 0, 255, 0.3);
         }
-        
+
         .song-item.active {
-            background: #e6f7ff;
-            border-left: 4px solid var(--secondary-color);
+            background: linear-gradient(90deg, rgba(255, 0, 51, 0.3), rgba(157, 0, 255, 0.3));
+            border-left-color: var(--neon-yellow);
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
         }
-        
-        .song-info {
-            flex: 1;
-            margin-left: 15px;
+
+        .song-item.active::before {
+            width: 100%;
+            background: linear-gradient(90deg, var(--neon-yellow), transparent);
         }
-        
-        .song-title {
-            font-weight: 600;
-            color: var(--dark-color);
-        }
-        
-        .song-artist {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
+
+        /* Historias estilo graffiti */
         .stories-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
         }
-        
+
         .story-card {
-            background: white;
-            border-radius: 15px;
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            border: 4px solid transparent;
+            border-image: linear-gradient(45deg, var(--neon-yellow), var(--neon-green)) 1;
+            border-radius: 0;
+            padding: 0;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
             position: relative;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            min-height: 400px;
         }
-        
+
         .story-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 25px 50px rgba(255, 255, 0, 0.2),
+                        0 0 40px rgba(0, 255, 0, 0.1);
         }
-        
-        .story-img {
-            height: 200px;
-            width: 100%;
-            object-fit: cover;
+
+        .story-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--neon-yellow), var(--neon-green));
+            animation: borderFlow 3s linear infinite;
         }
-        
+
+        @keyframes borderFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
         .story-content {
-            padding: 25px;
+            padding: 30px;
+            position: relative;
+            z-index: 2;
         }
-        
+
+        .story-content h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.2rem;
+            color: var(--neon-yellow);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .story-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--neon-yellow);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .story-card:hover .story-content h3::after {
+            transform: scaleX(1);
+        }
+
         .story-date {
-            color: var(--primary-color);
-            font-size: 0.9rem;
-            margin-bottom: 10px;
             display: block;
+            color: var(--neon-green);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--neon-green);
         }
-        
+
         .story-text {
-            color: #555;
-            line-height: 1.7;
+            color: #ccc;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
         }
-        
+
+        /* Área de subida estilo estudio de grabación */
         .upload-area {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: var(--shadow);
+            background: rgba(26, 26, 26, 0.9);
+            border: 4px dashed var(--neon-pink);
+            border-radius: 25px;
+            padding: 60px 40px;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(255, 0, 255, 0.1),
+                        inset 0 0 40px rgba(255, 0, 255, 0.05);
         }
-        
+
+        .upload-area::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite alternate;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.3; }
+            100% { transform: scale(1.2); opacity: 0.6; }
+        }
+
         .upload-box {
-            border: 3px dashed #ddd;
-            border-radius: 15px;
-            padding: 60px 20px;
-            margin: 30px 0;
+            position: relative;
+            z-index: 2;
+            padding: 50px 30px;
+            background: rgba(10, 10, 10, 0.8);
+            border-radius: 20px;
+            margin: 40px 0;
+            border: 2px solid var(--neon-blue);
             transition: all 0.3s ease;
             cursor: pointer;
         }
-        
-        .upload-box:hover, .upload-box.dragover {
-            border-color: var(--primary-color);
-            background: #fff5f7;
+
+        .upload-box:hover {
+            border-color: var(--neon-yellow);
+            box-shadow: 0 0 40px rgba(255, 255, 0, 0.2),
+                        inset 0 0 30px rgba(255, 255, 0, 0.1);
         }
-        
+
         .upload-icon {
-            font-size: 4rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+            font-size: 5rem;
+            color: var(--neon-blue);
+            margin-bottom: 25px;
+            animation: bounce 2s ease-in-out infinite;
         }
-        
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
         .upload-btn {
-            background: var(--gradient);
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
             color: white;
             border: none;
-            padding: 15px 40px;
-            border-radius: 50px;
+            padding: 20px 50px;
+            border-radius: 0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            margin-top: 30px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .upload-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: rotate(45deg);
+            transition: left 0.6s;
+        }
+
+        .upload-btn:hover::after {
+            left: 100%;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 0, 255, 0.4),
+                        0 0 30px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Configuración estilo panel de control */
+        .config-section {
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            border: 3px solid;
+            border-image: linear-gradient(45deg, var(--neon-green), var(--neon-blue)) 1;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .config-section::before {
+            content: '⚙️';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.1;
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .backup-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .backup-btn {
+            background: rgba(40, 40, 40, 0.9);
+            border: 2px solid;
+            border-image: linear-gradient(45deg, var(--neon-pink), var(--neon-blue)) 1;
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            font-family: 'Orbitron', sans-serif;
             font-size: 1.1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .upload-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 7px 15px rgba(255, 107, 139, 0.4);
-        }
-        
-        .upload-options {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-        
-        .upload-option {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
-            border-radius: 15px;
-            background: #f9f9f9;
-            width: 180px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .upload-option:hover {
-            background: #f0f0f0;
-            transform: translateY(-5px);
-        }
-        
-        .upload-option i {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .photo-option i { color: #ff6b8b; }
-        .music-option i { color: #6a5af9; }
-        .story-option i { color: #4ecdc4; }
-        
-        .config-section {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            margin-top: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .config-section h3 {
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #555;
-        }
-        
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-        
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--primary-color);
-            outline: none;
-        }
-        
-        .backup-options {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .backup-btn {
-            flex: 1;
-            min-width: 150px;
-            padding: 12px;
-            border: none;
-            border-radius: 10px;
-            background: #f0f0f0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 10px;
-        }
-        
-        .backup-btn:hover {
-            background: #e0e0e0;
-            transform: translateY(-3px);
-        }
-        
-        .export-btn {
-            background: var(--secondary-color);
-            color: white;
-        }
-        
-        .import-btn {
-            background: var(--accent-color);
-            color: white;
-        }
-        
-        footer {
-            background: var(--dark-color);
-            color: white;
+            gap: 15px;
             text-align: center;
-            padding: 30px 0;
-            margin-top: 60px;
-            border-radius: 30px 30px 0 0;
         }
-        
+
+        .backup-btn i {
+            font-size: 2.5rem;
+        }
+
+        .backup-btn:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 0, 255, 0.3);
+            background: linear-gradient(45deg, rgba(255, 0, 51, 0.2), rgba(157, 0, 255, 0.2));
+        }
+
+        /* Footer estilo escenario */
+        footer {
+            background: linear-gradient(to top, #0a0a0a, transparent);
+            padding: 50px 0 30px;
+            margin-top: 80px;
+            position: relative;
+            border-top: 2px solid var(--neon-pink);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 0, 255, 0.05) 50%, transparent 70%);
+            animation: scanline 3s linear infinite;
+        }
+
         .heart {
-            color: var(--primary-color);
+            color: var(--neon-pink);
             animation: heartbeat 1.5s infinite;
+            display: inline-block;
         }
-        
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        @media (max-width: 768px) {
-            .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
-            
-            .stories-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .upload-options {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav {
-                gap: 10px;
-            }
-            
-            .nav-btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-            
-            .backup-options {
-                flex-direction: column;
-            }
-        }
-        
+
+        /* Modal estilo cartel de concierto */
         .modal {
             display: none;
             position: fixed;
@@ -502,82 +818,108 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
             justify-content: center;
             align-items: center;
-            animation: fadeIn 0.3s ease;
+            animation: modalFadeIn 0.4s ease;
         }
-        
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; backdrop-filter: blur(0); }
+            to { opacity: 1; backdrop-filter: blur(10px); }
+        }
+
         .modal-content {
             max-width: 90%;
             max-height: 90%;
-            border-radius: 10px;
-            overflow: hidden;
+            border: 5px solid;
+            border-image: linear-gradient(45deg, var(--neon-pink), var(--neon-blue), var(--neon-yellow)) 1;
+            box-shadow: 0 0 60px rgba(255, 0, 255, 0.5),
+                        0 0 100px rgba(0, 255, 255, 0.3),
+                        inset 0 0 40px rgba(255, 255, 0, 0.2);
+            animation: modalGlow 2s ease-in-out infinite alternate;
         }
-        
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 2.5rem;
-            cursor: pointer;
-            transition: color 0.3s ease;
+
+        @keyframes modalGlow {
+            from { box-shadow: 0 0 40px rgba(255, 0, 255, 0.5); }
+            to { box-shadow: 0 0 80px rgba(255, 0, 255, 0.8),
+                             0 0 120px rgba(0, 255, 255, 0.5); }
         }
-        
-        .modal-close:hover {
-            color: var(--primary-color);
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .logo { font-size: 3.5rem; }
+            .nav-btn { min-width: 160px; padding: 15px 25px; }
         }
-        
-        .alert {
-            padding: 15px;
-            border-radius: 10px;
-            margin: 15px 0;
-            display: none;
+
+        @media (max-width: 768px) {
+            .logo { font-size: 2.8rem; }
+            .couple-name { font-size: 2rem; }
+            .nav-btn { min-width: 140px; padding: 12px 20px; font-size: 0.9rem; }
+            .section-title { font-size: 2.5rem; }
+            .gallery { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+            .stories-container { grid-template-columns: 1fr; }
+            .backup-options { grid-template-columns: 1fr; }
+            nav { gap: 15px; }
+            .music-player, .upload-area, .config-section { padding: 30px 20px; }
         }
-        
-        .alert.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            display: block;
+
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 12px;
         }
-        
-        .alert.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            display: block;
+
+        ::-webkit-scrollbar-track {
+            background: var(--rock-black);
+            border-left: 1px solid var(--neon-pink);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--metal-gradient);
+            border-radius: 0;
+            border: 2px solid var(--rock-black);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            box-shadow: 0 0 20px var(--neon-pink);
         }
     </style>
 </head>
 <body>
+    <!-- Cursor personalizado -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Partículas -->
+    <div id="particles-js"></div>
+
     <header>
         <div class="container">
-            <div class="logo">
-                <i class="fas fa-heart"></i>
-                <h1>Álbum Digital de Jorge y Pauline</h1>
-                <i class="fas fa-heart"></i>
+            <div class="logo-area">
+                <h1 class="logo">ROCK ALBUM</h1>
+                <div class="couple-name">JORGE 🤘 PAULINE</div>
+                <p style="color: #ccc; font-family: 'Orbitron', sans-serif; letter-spacing: 2px;">
+                    NUESTRA HISTORIA EN ACORDE MAYOR
+                </p>
             </div>
-            <div class="couple-name">Jorge ❤️ Pauline</div>
-            <p>Un espacio para guardar nuestros momentos especiales</p>
             
             <nav>
                 <button class="nav-btn active" data-section="fotos">
-                    <i class="fas fa-images"></i> Fotos
+                    <i class="fas fa-guitar"></i> FOTOS
                 </button>
                 <button class="nav-btn" data-section="musica">
-                    <i class="fas fa-music"></i> Música
+                    <i class="fas fa-volume-up"></i> MÚSICA
                 </button>
                 <button class="nav-btn" data-section="historias">
-                    <i class="fas fa-book-open"></i> Historias
+                    <i class="fas fa-scroll"></i> HISTORIAS
                 </button>
                 <button class="nav-btn" data-section="subir">
-                    <i class="fas fa-cloud-upload-alt"></i> Subir
+                    <i class="fas fa-bolt"></i> SUBIR
                 </button>
                 <button class="nav-btn" data-section="configuracion">
-                    <i class="fas fa-cog"></i> Configuración
+                    <i class="fas fa-sliders-h"></i> CONFIG
                 </button>
             </nav>
         </div>
@@ -586,151 +928,178 @@
     <main class="container">
         <!-- Sección de Fotos -->
         <section id="fotos" class="section active">
-            <h2 class="section-title">Nuestros Momentos</h2>
-            <div class="alert" id="photoAlert"></div>
+            <h2 class="section-title">BACKSTAGE PASS</h2>
             <div class="gallery" id="photoGallery">
-                <!-- Las fotos se cargarán aquí dinámicamente -->
+                <!-- Fotos se cargan dinámicamente -->
             </div>
         </section>
         
         <!-- Sección de Música -->
         <section id="musica" class="section">
-            <h2 class="section-title">Nuestra Banda Sonora</h2>
-            <div class="alert" id="musicAlert"></div>
+            <h2 class="section-title">SETLIST</h2>
             <div class="music-player">
                 <div class="now-playing">
-                    <h3>Reproduciendo ahora: <span id="currentSong">Selecciona una canción</span></h3>
+                    <h3>NOW PLAYING: <span id="currentSong">SELECT A TRACK</span></h3>
                     <div class="audio-controls">
                         <audio id="audioPlayer" controls>
-                            Tu navegador no soporta el elemento de audio.
+                            Your browser does not support the audio element.
                         </audio>
                     </div>
                 </div>
                 
                 <div class="song-list" id="songList">
-                    <!-- Las canciones se cargarán aquí dinámicamente -->
+                    <!-- Canciones se cargan dinámicamente -->
                 </div>
             </div>
         </section>
         
         <!-- Sección de Historias -->
         <section id="historias" class="section">
-            <h2 class="section-title">Nuestras Historias</h2>
-            <div class="alert" id="storyAlert"></div>
+            <h2 class="section-title">TOUR DIARY</h2>
             <div class="stories-container" id="storiesContainer">
-                <!-- Las historias se cargarán aquí dinámicamente -->
+                <!-- Historias se cargan dinámicamente -->
             </div>
         </section>
         
-        <!-- Sección de Subir Contenido -->
+        <!-- Sección de Subir -->
         <section id="subir" class="section">
-            <h2 class="section-title">Comparte un Recuerdo</h2>
+            <h2 class="section-title">DROP THE BASS</h2>
             <div class="upload-area">
-                <h3>Sube fotos, canciones o historias a nuestro álbum</h3>
-                <p>Todos los archivos se guardarán localmente en tu navegador</p>
-                
-                <div class="upload-options">
-                    <div class="upload-option photo-option" data-type="photo">
-                        <i class="fas fa-camera"></i>
-                        <span>Subir Foto</span>
-                    </div>
-                    <div class="upload-option music-option" data-type="music">
-                        <i class="fas fa-music"></i>
-                        <span>Subir Canción</span>
-                    </div>
-                    <div class="upload-option story-option" data-type="story">
-                        <i class="fas fa-book"></i>
-                        <span>Escribir Historia</span>
-                    </div>
-                </div>
+                <h3 style="color: var(--neon-blue); font-family: 'Orbitron', sans-serif; margin-bottom: 20px;">
+                    UPLOAD TO THE MIX
+                </h3>
+                <p style="color: #ccc; margin-bottom: 30px; font-size: 1.1rem;">
+                    Sube fotos, canciones o escribe historias. Todo se guarda localmente en tu navegador.
+                </p>
                 
                 <div class="upload-box" id="uploadBox">
                     <i class="fas fa-cloud-upload-alt upload-icon"></i>
-                    <h4>Arrastra y suelta archivos aquí</h4>
-                    <p>o haz clic para seleccionar archivos</p>
-                    <p class="file-types">Soporta: JPG, PNG, MP3, WAV</p>
+                    <h4 style="color: var(--neon-green); margin-bottom: 10px; font-family: 'Orbitron', sans-serif;">
+                        DRAG & DROP FILES HERE
+                    </h4>
+                    <p style="color: #aaa; margin-bottom: 5px;">or click to select files</p>
+                    <p style="color: var(--neon-yellow); font-family: 'Orbitron', sans-serif; font-size: 0.9rem;">
+                        SUPPORTED: JPG, PNG, MP3, WAV
+                    </p>
                     <input type="file" id="fileInput" multiple style="display: none;" accept="image/*,audio/*">
                     <button class="upload-btn" id="browseBtn">
-                        <i class="fas fa-folder-open"></i> Buscar Archivos
+                        <i class="fas fa-file-import"></i> BROWSE FILES
                     </button>
                 </div>
                 
-                <div id="uploadStatus"></div>
+                <div id="uploadStatus" style="position: relative; z-index: 2;"></div>
+                
+                <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <div class="upload-option" data-type="photo" style="background: rgba(255,0,51,0.1); border: 2px solid var(--neon-pink);">
+                        <i class="fas fa-camera-retro" style="color: var(--neon-pink);"></i>
+                        <span style="color: white; font-family: 'Orbitron', sans-serif;">UPLOAD PHOTO</span>
+                    </div>
+                    <div class="upload-option" data-type="music" style="background: rgba(0,255,255,0.1); border: 2px solid var(--neon-blue);">
+                        <i class="fas fa-compact-disc" style="color: var(--neon-blue);"></i>
+                        <span style="color: white; font-family: 'Orbitron', sans-serif;">UPLOAD TRACK</span>
+                    </div>
+                    <div class="upload-option" data-type="story" style="background: rgba(255,255,0,0.1); border: 2px solid var(--neon-yellow);">
+                        <i class="fas fa-feather-alt" style="color: var(--neon-yellow);"></i>
+                        <span style="color: white; font-family: 'Orbitron', sans-serif;">WRITE STORY</span>
+                    </div>
+                </div>
             </div>
         </section>
         
         <!-- Sección de Configuración -->
         <section id="configuracion" class="section">
-            <h2 class="section-title">Configuración y Respaldo</h2>
+            <h2 class="section-title">CONTROL PANEL</h2>
             <div class="config-section">
-                <h3><i class="fas fa-database"></i> Gestión de Datos</h3>
-                <div class="alert" id="configAlert"></div>
+                <h3 style="color: var(--neon-green); font-family: 'Orbitron', sans-serif; margin-bottom: 30px; text-align: center;">
+                    <i class="fas fa-database"></i> DATA MANAGEMENT
+                </h3>
                 
-                <div class="form-group">
-                    <label for="storageInfo">Espacio utilizado:</label>
-                    <input type="text" id="storageInfo" readonly>
-                </div>
-                
-                <div class="form-group">
-                    <label for="cloudinaryConfig">Configuración Cloudinary (Opcional):</label>
-                    <input type="text" id="cloudinaryConfig" placeholder="cloudinary://API_KEY:API_SECRET@CLOUD_NAME">
-                    <small>Configura Cloudinary para almacenamiento en la nube (gratuito hasta 25GB)</small>
+                <div style="background: rgba(0,0,0,0.5); padding: 25px; border-radius: 15px; margin-bottom: 30px; border: 1px solid var(--neon-green);">
+                    <h4 style="color: var(--neon-blue); margin-bottom: 15px; font-family: 'Orbitron', sans-serif;">
+                        <i class="fas fa-chart-pie"></i> STORAGE INFO
+                    </h4>
+                    <input type="text" id="storageInfo" readonly 
+                           style="width: 100%; padding: 15px; background: #111; border: 2px solid var(--neon-blue); 
+                                  color: var(--neon-green); font-family: 'Orbitron', sans-serif; font-size: 1.1rem;
+                                  text-align: center; margin-bottom: 15px;">
+                    <p style="color: #aaa; font-size: 0.9rem; text-align: center;">
+                        Data is stored locally in your browser. Export regularly to backup.
+                    </p>
                 </div>
                 
                 <div class="backup-options">
-                    <button class="backup-btn export-btn" id="exportBtn">
-                        <i class="fas fa-download"></i> Exportar Datos
+                    <button class="backup-btn" id="exportBtn" style="border-image: linear-gradient(45deg, var(--neon-green), var(--neon-blue)) 1;">
+                        <i class="fas fa-file-export" style="color: var(--neon-green);"></i>
+                        <span>EXPORT DATA</span>
+                        <small style="color: #aaa; font-size: 0.8rem;">Download JSON backup</small>
                     </button>
-                    <button class="backup-btn import-btn" id="importBtn">
-                        <i class="fas fa-upload"></i> Importar Datos
+                    
+                    <button class="backup-btn" id="importBtn" style="border-image: linear-gradient(45deg, var(--neon-blue), var(--neon-pink)) 1;">
+                        <i class="fas fa-file-import" style="color: var(--neon-blue);"></i>
+                        <span>IMPORT DATA</span>
+                        <small style="color: #aaa; font-size: 0.8rem;">Restore from JSON</small>
                     </button>
-                    <button class="backup-btn" id="clearBtn" style="background: #ff6b8b; color: white;">
-                        <i class="fas fa-trash"></i> Limpiar Todo
+                    
+                    <button class="backup-btn" id="clearBtn" style="border-image: linear-gradient(45deg, var(--neon-pink), var(--neon-yellow)) 1;">
+                        <i class="fas fa-bomb" style="color: var(--neon-pink);"></i>
+                        <span>FACTORY RESET</span>
+                        <small style="color: #aaa; font-size: 0.8rem;">Clear all data</small>
                     </button>
                 </div>
                 
-                <div class="form-group" style="margin-top: 30px;">
-                    <h4><i class="fas fa-info-circle"></i> Instrucciones para respaldo:</h4>
-                    <ol style="text-align: left; margin-top: 10px; padding-left: 20px;">
-                        <li>Exporta tus datos regularmente haciendo clic en "Exportar Datos"</li>
-                        <li>Guarda el archivo JSON en un lugar seguro</li>
-                        <li>Para restaurar, usa "Importar Datos" y selecciona el archivo</li>
-                        <li>Opcional: Configura Cloudinary para almacenar imágenes/audio en la nube</li>
-                    </ol>
+                <div style="margin-top: 40px; padding: 25px; background: rgba(0,0,0,0.3); border-radius: 15px; border: 1px solid var(--neon-purple);">
+                    <h4 style="color: var(--neon-purple); margin-bottom: 15px; font-family: 'Orbitron', sans-serif;">
+                        <i class="fas fa-cloud"></i> CLOUD SYNC (OPTIONAL)
+                    </h4>
+                    <input type="text" id="cloudinaryConfig" placeholder="cloudinary://api_key:api_secret@cloud_name" 
+                           style="width: 100%; padding: 15px; background: #111; border: 2px solid var(--neon-purple); 
+                                  color: white; margin-bottom: 15px; font-family: 'Orbitron', sans-serif;">
+                    <p style="color: #aaa; font-size: 0.9rem;">
+                        Configure Cloudinary for cloud storage (free up to 25GB). Leave empty for local storage only.
+                    </p>
                 </div>
             </div>
         </section>
     </main>
     
-    <!-- Modal para previsualización de imágenes -->
+    <!-- Modal para imágenes -->
     <div class="modal" id="imageModal">
-        <span class="modal-close" id="modalClose">&times;</span>
+        <span class="modal-close" id="modalClose" style="position: absolute; top: 30px; right: 40px; color: white; font-size: 3rem; cursor: pointer; z-index: 10001;">&times;</span>
         <img class="modal-content" id="modalImage">
     </div>
     
     <footer>
-        <div class="container">
-            <p>Hecho con <span class="heart"><i class="fas fa-heart"></i></span> para Jorge y Pauline</p>
-            <p>© <span id="currentYear"></span> - Álbum Digital - Los datos se guardan en tu navegador</p>
+        <div class="container" style="text-align: center; position: relative; z-index: 2;">
+            <p style="font-family: 'Rock Salt', cursive; font-size: 1.5rem; margin-bottom: 20px;">
+                MADE WITH <span class="heart">❤️</span> FOR JORGE & PAULINE
+            </p>
+            <p style="color: #aaa; font-family: 'Orbitron', sans-serif; letter-spacing: 2px;">
+                © <span id="currentYear"></span> ROCK ALBUM • ALL DATA STORED LOCALLY
+            </p>
+            <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px; font-size: 1.5rem;">
+                <i class="fas fa-guitar" style="color: var(--neon-pink);"></i>
+                <i class="fas fa-drum" style="color: var(--neon-blue);"></i>
+                <i class="fas fa-microphone" style="color: var(--neon-yellow);"></i>
+                <i class="fas fa-volume-up" style="color: var(--neon-green);"></i>
+            </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Sistema de almacenamiento persistente para GitHub Pages
-        class AlbumStorage {
+        // Sistema de almacenamiento
+        class RockStorage {
             constructor() {
                 this.STORAGE_KEYS = {
-                    PHOTOS: 'jorgePauline_photos',
-                    SONGS: 'jorgePauline_songs',
-                    STORIES: 'jorgePauline_stories',
-                    SETTINGS: 'jorgePauline_settings'
+                    PHOTOS: 'rockAlbum_photos',
+                    SONGS: 'rockAlbum_songs',
+                    STORIES: 'rockAlbum_stories'
                 };
-                
                 this.init();
             }
             
             init() {
-                // Inicializar datos si no existen
                 if (!this.getPhotos().length) {
                     this.saveDefaultData();
                 }
@@ -740,15 +1109,15 @@
                 const defaultPhotos = [
                     { 
                         id: this.generateId(),
-                        src: "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80",
-                        caption: "Nuestro primer viaje juntos",
+                        src: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+                        caption: "Nuestro primer concierto juntos",
                         date: new Date().toISOString(),
                         uploadedBy: "Jorge"
                     },
                     { 
                         id: this.generateId(),
-                        src: "https://images.unsplash.com/photo-1529254479751-fbacb4c7a587?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-                        caption: "Celebrando nuestro aniversario",
+                        src: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+                        caption: "Backstage en el festival",
                         date: new Date().toISOString(),
                         uploadedBy: "Pauline"
                     }
@@ -757,21 +1126,36 @@
                 const defaultSongs = [
                     {
                         id: this.generateId(),
-                        title: "Nuestra Canción Especial",
-                        artist: "Artista Favorito",
+                        title: "Sweet Child O' Mine",
+                        artist: "Guns N' Roses",
                         src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
                         date: new Date().toISOString(),
                         uploadedBy: "Jorge"
+                    },
+                    {
+                        id: this.generateId(),
+                        title: "Back in Black",
+                        artist: "AC/DC",
+                        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+                        date: new Date().toISOString(),
+                        uploadedBy: "Pauline"
                     }
                 ];
                 
                 const defaultStories = [
                     {
                         id: this.generateId(),
-                        title: "Cómo nos conocimos",
-                        content: "Jorge y Pauline se conocieron en una cafetería un día lluvioso. Fue amor a primera vista.",
+                        title: "Noche de Rock en el Garage",
+                        content: "Esa noche en el garage de Jorge, con solo una guitarra y mucha pasión, descubrimos nuestra banda sonora. Pauline en los coros, Jorge en la guitarra, y el mundo desapareció alrededor nuestro.",
                         date: new Date().toISOString(),
                         uploadedBy: "Ambos"
+                    },
+                    {
+                        id: this.generateId(),
+                        title: "Festival de Verano",
+                        content: "Sudor, luces y acordes distorsionados. 50,000 personas cantando al unísono y nosotros dos, perdidos en la multitud pero encontrándonos en cada mirada. El rock nos unió esa noche.",
+                        date: new Date().toISOString(),
+                        uploadedBy: "Pauline"
                     }
                 ];
                 
@@ -780,7 +1164,6 @@
                 localStorage.setItem(this.STORAGE_KEYS.STORIES, JSON.stringify(defaultStories));
             }
             
-            // Métodos para fotos
             getPhotos() {
                 return JSON.parse(localStorage.getItem(this.STORAGE_KEYS.PHOTOS) || '[]');
             }
@@ -798,7 +1181,6 @@
                 return photos;
             }
             
-            // Métodos para canciones
             getSongs() {
                 return JSON.parse(localStorage.getItem(this.STORAGE_KEYS.SONGS) || '[]');
             }
@@ -816,7 +1198,6 @@
                 return songs;
             }
             
-            // Métodos para historias
             getStories() {
                 return JSON.parse(localStorage.getItem(this.STORAGE_KEYS.STORIES) || '[]');
             }
@@ -834,7 +1215,6 @@
                 return stories;
             }
             
-            // Métodos generales
             generateId() {
                 return Date.now().toString(36) + Math.random().toString(36).substr(2);
             }
@@ -845,23 +1225,20 @@
                     songs: this.getSongs(),
                     stories: this.getStories(),
                     exportDate: new Date().toISOString(),
-                    couple: "Jorge y Pauline"
+                    version: "2.0",
+                    couple: "Jorge & Pauline"
                 };
-                
                 return JSON.stringify(data, null, 2);
             }
             
             importData(jsonString) {
                 try {
                     const data = JSON.parse(jsonString);
-                    
                     if (data.photos) localStorage.setItem(this.STORAGE_KEYS.PHOTOS, JSON.stringify(data.photos));
                     if (data.songs) localStorage.setItem(this.STORAGE_KEYS.SONGS, JSON.stringify(data.songs));
                     if (data.stories) localStorage.setItem(this.STORAGE_KEYS.STORIES, JSON.stringify(data.stories));
-                    
                     return true;
                 } catch (error) {
-                    console.error('Error importing data:', error);
                     return false;
                 }
             }
@@ -876,12 +1253,9 @@
             
             getStorageInfo() {
                 let totalSize = 0;
-                
                 [this.STORAGE_KEYS.PHOTOS, this.STORAGE_KEYS.SONGS, this.STORAGE_KEYS.STORIES].forEach(key => {
                     const data = localStorage.getItem(key);
-                    if (data) {
-                        totalSize += new Blob([data]).size;
-                    }
+                    if (data) totalSize += new Blob([data]).size;
                 });
                 
                 return {
@@ -894,24 +1268,26 @@
             
             formatBytes(bytes, decimals = 2) {
                 if (bytes === 0) return '0 Bytes';
-                
                 const k = 1024;
                 const dm = decimals < 0 ? 0 : decimals;
                 const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-                
                 const i = Math.floor(Math.log(bytes) / Math.log(k));
-                
                 return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
             }
         }
 
         // Aplicación principal
-        class AlbumApp {
+        class RockAlbumApp {
             constructor() {
-                this.storage = new AlbumStorage();
-                this.currentUser = "Jorge"; // Puedes cambiar esto según quién esté subiendo
+                this.storage = new RockStorage();
+                this.currentUser = "Jorge";
                 
-                // Elementos del DOM
+                // Inicializar elementos
+                this.initElements();
+                this.init();
+            }
+            
+            initElements() {
                 this.elements = {
                     sections: document.querySelectorAll('.section'),
                     navButtons: document.querySelectorAll('.nav-btn'),
@@ -931,18 +1307,12 @@
                     exportBtn: document.getElementById('exportBtn'),
                     importBtn: document.getElementById('importBtn'),
                     clearBtn: document.getElementById('clearBtn'),
-                    storageInfo: document.getElementById('storageInfo'),
-                    configAlert: document.getElementById('configAlert'),
-                    photoAlert: document.getElementById('photoAlert'),
-                    musicAlert: document.getElementById('musicAlert'),
-                    storyAlert: document.getElementById('storyAlert')
+                    storageInfo: document.getElementById('storageInfo')
                 };
-                
-                this.init();
             }
             
             init() {
-                // Establecer año actual
+                // Año actual
                 document.getElementById('currentYear').textContent = new Date().getFullYear();
                 
                 // Cargar datos
@@ -951,60 +1321,65 @@
                 this.loadStories();
                 this.updateStorageInfo();
                 
-                // Configurar eventos
+                // Eventos
                 this.setupNavigation();
                 this.setupUploadArea();
                 this.setupMusicPlayer();
                 this.setupImageModal();
                 this.setupBackupButtons();
+                this.setupCustomCursor();
+                this.initParticles();
                 
-                // Mostrar mensaje de bienvenida
-                this.showAlert(this.elements.photoAlert, '¡Bienvenidos Jorge y Pauline! Todos los archivos se guardarán en tu navegador.', 'success');
+                // Efecto de carga inicial
+                this.showNotification('🤘 ¡Bienvenidos al Rock Album de Jorge y Pauline!', 'success');
             }
             
             setupNavigation() {
-                this.elements.navButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        const targetSection = button.getAttribute('data-section');
+                this.elements.navButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const target = btn.dataset.section;
                         
-                        // Actualizar botones activos
-                        this.elements.navButtons.forEach(btn => btn.classList.remove('active'));
-                        button.classList.add('active');
+                        this.elements.navButtons.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
                         
-                        // Mostrar sección correspondiente
                         this.elements.sections.forEach(section => {
                             section.classList.remove('active');
-                            if (section.id === targetSection) {
+                            if (section.id === target) {
                                 section.classList.add('active');
-                                
-                                // Actualizar información de almacenamiento en configuración
-                                if (targetSection === 'configuracion') {
-                                    this.updateStorageInfo();
-                                }
+                                if (target === 'configuracion') this.updateStorageInfo();
                             }
                         });
+                        
+                        // Efecto de sonido
+                        this.playSoundEffect();
                     });
                 });
+            }
+            
+            playSoundEffect() {
+                const audio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA==');
+                audio.volume = 0.1;
+                audio.play().catch(() => {});
             }
             
             loadPhotos() {
                 const photos = this.storage.getPhotos();
                 this.elements.photoGallery.innerHTML = '';
                 
-                if (photos.length === 0) {
+                if (!photos.length) {
                     this.elements.photoGallery.innerHTML = `
-                        <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-                            <i class="fas fa-images" style="font-size: 3rem; color: #ccc; margin-bottom: 15px;"></i>
-                            <h3 style="color: #666;">No hay fotos aún</h3>
-                            <p>Sube tu primera foto haciendo clic en la sección "Subir"</p>
+                        <div style="grid-column: 1/-1; text-align: center; padding: 60px; background: rgba(0,0,0,0.3); border: 2px dashed var(--neon-pink);">
+                            <i class="fas fa-camera-retro" style="font-size: 4rem; color: var(--neon-pink); margin-bottom: 20px;"></i>
+                            <h3 style="color: var(--neon-blue); font-family: 'Orbitron', sans-serif;">NO PHOTOS YET</h3>
+                            <p style="color: #aaa;">Upload your first rock memory!</p>
                         </div>
                     `;
                     return;
                 }
                 
                 photos.forEach(photo => {
-                    const photoElement = this.createPhotoElement(photo);
-                    this.elements.photoGallery.appendChild(photoElement);
+                    const element = this.createPhotoElement(photo);
+                    this.elements.photoGallery.appendChild(element);
                 });
             }
             
@@ -1012,26 +1387,27 @@
                 const div = document.createElement('div');
                 div.className = 'photo-item';
                 div.innerHTML = `
-                    <img src="${photo.src}" alt="${photo.caption}" data-id="${photo.id}">
+                    <img src="${photo.src}" alt="${photo.caption}" loading="lazy">
                     <div class="photo-caption">
-                        <p>${photo.caption}</p>
-                        <small>Subido por ${photo.uploadedBy} • ${new Date(photo.date).toLocaleDateString()}</small>
+                        <h4 style="color: white; margin-bottom: 5px;">${photo.caption}</h4>
+                        <small style="color: #ccc;">By ${photo.uploadedBy} • ${new Date(photo.date).toLocaleDateString()}</small>
                     </div>
-                    <button class="delete-btn" data-id="${photo.id}" title="Eliminar foto">
-                        <i class="fas fa-times"></i>
+                    <button class="delete-btn" title="Delete">
+                        <i class="fas fa-trash"></i>
                     </button>
                 `;
                 
-                // Evento para abrir imagen en modal
                 div.querySelector('img').addEventListener('click', () => {
                     this.openImageModal(photo.src, photo.caption);
                 });
                 
-                // Evento para eliminar foto
                 div.querySelector('.delete-btn').addEventListener('click', (e) => {
                     e.stopPropagation();
-                    if (confirm('¿Estás seguro de que quieres eliminar esta foto?')) {
-                        this.deletePhoto(photo.id);
+                    if (confirm('¿Delete this rock memory?')) {
+                        this.storage.deletePhoto(photo.id);
+                        this.loadPhotos();
+                        this.updateStorageInfo();
+                        this.showNotification('Photo deleted!', 'info');
                     }
                 });
                 
@@ -1042,22 +1418,21 @@
                 const songs = this.storage.getSongs();
                 this.elements.songList.innerHTML = '';
                 
-                if (songs.length === 0) {
+                if (!songs.length) {
                     this.elements.songList.innerHTML = `
-                        <div style="text-align: center; padding: 30px; color: #666;">
-                            <i class="fas fa-music" style="font-size: 2.5rem; margin-bottom: 15px; opacity: 0.5;"></i>
-                            <p>No hay canciones aún</p>
+                        <div style="text-align: center; padding: 40px; color: #aaa;">
+                            <i class="fas fa-music" style="font-size: 3rem; opacity: 0.5; margin-bottom: 15px;"></i>
+                            <p>No tracks yet. Drop some beats!</p>
                         </div>
                     `;
                     return;
                 }
                 
                 songs.forEach((song, index) => {
-                    const songElement = this.createSongElement(song, index === 0);
-                    this.elements.songList.appendChild(songElement);
+                    const element = this.createSongElement(song, index === 0);
+                    this.elements.songList.appendChild(element);
                 });
                 
-                // Configurar primera canción para reproducción
                 if (songs.length > 0) {
                     this.setCurrentSong(songs[0]);
                 }
@@ -1067,28 +1442,31 @@
                 const div = document.createElement('div');
                 div.className = `song-item ${isActive ? 'active' : ''}`;
                 div.innerHTML = `
-                    <i class="fas fa-music"></i>
-                    <div class="song-info">
-                        <div class="song-title">${song.title}</div>
-                        <div class="song-artist">${song.artist}</div>
-                        <small>Subido por ${song.uploadedBy} • ${new Date(song.date).toLocaleDateString()}</small>
+                    <div style="display: flex; align-items: center; width: 100%; position: relative; z-index: 2;">
+                        <i class="fas fa-play" style="margin-right: 15px; color: ${isActive ? 'var(--neon-yellow)' : 'var(--neon-pink)'};"></i>
+                        <div style="flex: 1;">
+                            <div style="font-weight: bold; color: ${isActive ? 'var(--neon-yellow)' : 'white'};">${song.title}</div>
+                            <div style="color: #aaa; font-size: 0.9rem;">${song.artist} • ${new Date(song.date).toLocaleDateString()}</div>
+                        </div>
+                        <button class="delete-btn" style="position: static; opacity: 1; background: transparent; border: none; color: #ff0033; font-size: 1.2rem; padding: 5px;">
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
-                    <i class="fas fa-play"></i>
-                    <button class="delete-btn" data-id="${song.id}" title="Eliminar canción" style="position: absolute; right: 10px; top: 10px; background: rgba(255,0,0,0.7);">
-                        <i class="fas fa-times"></i>
-                    </button>
                 `;
                 
                 div.addEventListener('click', (e) => {
-                    if (!e.target.classList.contains('delete-btn')) {
+                    if (!e.target.closest('.delete-btn')) {
                         this.playSong(song, div);
                     }
                 });
                 
                 div.querySelector('.delete-btn').addEventListener('click', (e) => {
                     e.stopPropagation();
-                    if (confirm('¿Estás seguro de que quieres eliminar esta canción?')) {
-                        this.deleteSong(song.id);
+                    if (confirm('¿Delete this track?')) {
+                        this.storage.deleteSong(song.id);
+                        this.loadSongs();
+                        this.updateStorageInfo();
+                        this.showNotification('Track deleted!', 'info');
                     }
                 });
                 
@@ -1099,20 +1477,20 @@
                 const stories = this.storage.getStories();
                 this.elements.storiesContainer.innerHTML = '';
                 
-                if (stories.length === 0) {
+                if (!stories.length) {
                     this.elements.storiesContainer.innerHTML = `
-                        <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-                            <i class="fas fa-book-open" style="font-size: 3rem; color: #ccc; margin-bottom: 15px;"></i>
-                            <h3 style="color: #666;">No hay historias aún</h3>
-                            <p>Escribe tu primera historia en la sección "Subir"</p>
+                        <div style="grid-column: 1/-1; text-align: center; padding: 60px; background: rgba(0,0,0,0.3); border: 2px dashed var(--neon-yellow);">
+                            <i class="fas fa-book-open" style="font-size: 4rem; color: var(--neon-yellow); margin-bottom: 20px;"></i>
+                            <h3 style="color: var(--neon-green); font-family: 'Orbitron', sans-serif;">NO STORIES YET</h3>
+                            <p style="color: #aaa;">Write your first rock diary entry!</p>
                         </div>
                     `;
                     return;
                 }
                 
                 stories.forEach(story => {
-                    const storyElement = this.createStoryElement(story);
-                    this.elements.storiesContainer.appendChild(storyElement);
+                    const element = this.createStoryElement(story);
+                    this.elements.storiesContainer.appendChild(element);
                 });
             }
             
@@ -1123,19 +1501,21 @@
                     <div class="story-content">
                         <h3>${story.title}</h3>
                         <span class="story-date">
-                            <i class="far fa-calendar"></i> ${new Date(story.date).toLocaleDateString()} • 
-                            Subido por ${story.uploadedBy}
+                            <i class="far fa-calendar"></i> ${new Date(story.date).toLocaleDateString()} • By ${story.uploadedBy}
                         </span>
                         <p class="story-text">${story.content}</p>
-                        <button class="delete-btn" data-id="${story.id}" style="margin-top: 15px; background: rgba(255,0,0,0.7); color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">
-                            <i class="fas fa-trash"></i> Eliminar historia
+                        <button class="delete-btn" style="margin-top: 20px; background: rgba(255,0,51,0.8); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-family: 'Orbitron', sans-serif;">
+                            <i class="fas fa-trash"></i> DELETE STORY
                         </button>
                     </div>
                 `;
                 
                 div.querySelector('.delete-btn').addEventListener('click', () => {
-                    if (confirm('¿Estás seguro de que quieres eliminar esta historia?')) {
-                        this.deleteStory(story.id);
+                    if (confirm('¿Delete this story?')) {
+                        this.storage.deleteStory(story.id);
+                        this.loadStories();
+                        this.updateStorageInfo();
+                        this.showNotification('Story deleted!', 'info');
                     }
                 });
                 
@@ -1143,45 +1523,36 @@
             }
             
             setupUploadArea() {
-                // Abrir selector de archivos
                 this.elements.browseBtn.addEventListener('click', () => this.elements.fileInput.click());
                 this.elements.uploadBox.addEventListener('click', () => this.elements.fileInput.click());
                 
-                // Manejar selección de archivos
-                this.elements.fileInput.addEventListener('change', (e) => this.handleFileSelect(e));
+                this.elements.fileInput.addEventListener('change', (e) => this.handleFiles(e.target.files));
                 
-                // Configurar drag and drop
+                // Drag and drop
                 this.elements.uploadBox.addEventListener('dragover', (e) => {
                     e.preventDefault();
-                    this.elements.uploadBox.classList.add('dragover');
+                    this.elements.uploadBox.style.borderColor = 'var(--neon-yellow)';
                 });
                 
                 this.elements.uploadBox.addEventListener('dragleave', () => {
-                    this.elements.uploadBox.classList.remove('dragover');
+                    this.elements.uploadBox.style.borderColor = 'var(--neon-blue)';
                 });
                 
                 this.elements.uploadBox.addEventListener('drop', (e) => {
                     e.preventDefault();
-                    this.elements.uploadBox.classList.remove('dragover');
-                    
+                    this.elements.uploadBox.style.borderColor = 'var(--neon-blue)';
                     if (e.dataTransfer.files.length) {
                         this.handleFiles(e.dataTransfer.files);
                     }
                 });
                 
-                // Configurar opciones de subida
+                // Opciones de subida
                 this.elements.uploadOptions.forEach(option => {
                     option.addEventListener('click', () => {
-                        const type = option.getAttribute('data-type');
-                        
+                        const type = option.dataset.type;
                         if (type === 'story') {
                             this.showStoryForm();
                         } else {
-                            let message = type === 'photo' 
-                                ? 'Selecciona una foto para subir' 
-                                : 'Selecciona una canción para subir';
-                            
-                            this.showAlert(this.elements.uploadStatus, message, 'success');
                             this.elements.fileInput.accept = type === 'photo' ? 'image/*' : 'audio/*';
                             this.elements.fileInput.click();
                         }
@@ -1189,117 +1560,75 @@
                 });
             }
             
-            handleFileSelect(e) {
-                const files = Array.from(e.target.files);
-                if (files.length === 0) return;
-                
-                this.handleFiles(files);
-            }
-            
-            async handleFiles(files) {
-                this.elements.uploadStatus.innerHTML = '';
-                
-                for (const file of files.slice(0, 5)) { // Limitar a 5 archivos
-                    await this.processFile(file);
-                }
-                
-                this.elements.fileInput.value = ''; // Resetear input
-            }
-            
-            async processFile(file) {
-                return new Promise((resolve) => {
+            handleFiles(files) {
+                Array.from(files).slice(0, 5).forEach(file => {
                     const reader = new FileReader();
-                    
                     reader.onload = (e) => {
                         if (file.type.startsWith('image/')) {
-                            this.savePhotoFromFile(file, e.target.result);
+                            this.savePhoto(file, e.target.result);
                         } else if (file.type.startsWith('audio/')) {
-                            this.saveSongFromFile(file, e.target.result);
+                            this.saveSong(file, e.target.result);
                         }
-                        resolve();
                     };
                     
                     if (file.type.startsWith('image/') || file.type.startsWith('audio/')) {
                         reader.readAsDataURL(file);
-                    } else {
-                        reader.readAsText(file);
-                        resolve();
                     }
                 });
             }
             
-            savePhotoFromFile(file, dataUrl) {
+            savePhoto(file, dataUrl) {
                 const photo = {
                     id: this.storage.generateId(),
                     src: dataUrl,
-                    caption: `Foto subida por ${this.currentUser}`,
+                    caption: `Rock memory by ${this.currentUser}`,
                     date: new Date().toISOString(),
                     uploadedBy: this.currentUser,
-                    fileName: file.name,
-                    fileSize: file.size
+                    fileName: file.name
                 };
                 
                 this.storage.savePhoto(photo);
                 this.loadPhotos();
                 this.updateStorageInfo();
+                this.showNotification(`📸 Photo "${file.name}" uploaded!`, 'success');
                 
-                this.showAlert(this.elements.uploadStatus, 
-                    `✅ Foto "${file.name}" subida exitosamente`, 'success');
-                this.showAlert(this.elements.photoAlert, 
-                    `Nueva foto añadida por ${this.currentUser}`, 'success');
-                
-                // Cambiar a sección de fotos después de 2 segundos
                 setTimeout(() => {
                     document.querySelector('[data-section="fotos"]').click();
-                }, 2000);
+                }, 1500);
             }
             
-            saveSongFromFile(file, dataUrl) {
+            saveSong(file, dataUrl) {
                 const song = {
                     id: this.storage.generateId(),
-                    title: file.name.replace(/\.[^/.]+$/, ""), // Remover extensión
+                    title: file.name.replace(/\.[^/.]+$/, ""),
                     artist: this.currentUser,
                     src: dataUrl,
                     date: new Date().toISOString(),
                     uploadedBy: this.currentUser,
-                    fileName: file.name,
-                    fileSize: file.size
+                    fileName: file.name
                 };
                 
                 this.storage.saveSong(song);
                 this.loadSongs();
                 this.updateStorageInfo();
-                
-                this.showAlert(this.elements.uploadStatus, 
-                    `✅ Canción "${song.title}" subida exitosamente`, 'success');
-                this.showAlert(this.elements.musicAlert, 
-                    `Nueva canción añadida por ${this.currentUser}`, 'success');
+                this.showNotification(`🎵 Track "${song.title}" uploaded!`, 'success');
             }
             
             showStoryForm() {
                 this.elements.uploadStatus.innerHTML = `
-                    <div style="margin-top: 30px; text-align: left; background: #f9f9f9; padding: 25px; border-radius: 15px;">
-                        <h4 style="color: var(--secondary-color); margin-bottom: 15px;">
-                            <i class="fas fa-book"></i> Escribe una nueva historia
+                    <div style="background: rgba(0,0,0,0.8); padding: 30px; border-radius: 15px; border: 2px solid var(--neon-yellow); position: relative; z-index: 2;">
+                        <h4 style="color: var(--neon-yellow); font-family: 'Orbitron', sans-serif; margin-bottom: 20px;">
+                            <i class="fas fa-feather-alt"></i> WRITE ROCK STORY
                         </h4>
-                        <div class="form-group">
-                            <label for="storyTitle">Título:</label>
-                            <input type="text" id="storyTitle" placeholder="Ej: Nuestro primer viaje">
-                        </div>
-                        <div class="form-group">
-                            <label for="storyContent">Historia:</label>
-                            <textarea id="storyContent" rows="5" placeholder="Comparte tu historia especial..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="storyAuthor">Subido por:</label>
-                            <select id="storyAuthor" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 10px;">
-                                <option value="Jorge">Jorge</option>
-                                <option value="Pauline">Pauline</option>
-                                <option value="Ambos">Ambos</option>
-                            </select>
-                        </div>
-                        <button id="saveStoryBtn" class="upload-btn" style="margin-top: 10px;">
-                            <i class="fas fa-save"></i> Guardar Historia
+                        <input type="text" id="storyTitle" placeholder="Story title..." style="width: 100%; padding: 15px; margin-bottom: 15px; background: #111; border: 2px solid var(--neon-yellow); color: white;">
+                        <textarea id="storyContent" placeholder="Tell your rock story..." rows="5" style="width: 100%; padding: 15px; margin-bottom: 15px; background: #111; border: 2px solid var(--neon-yellow); color: white; resize: vertical;"></textarea>
+                        <select id="storyAuthor" style="width: 100%; padding: 15px; margin-bottom: 20px; background: #111; border: 2px solid var(--neon-yellow); color: white;">
+                            <option value="Jorge">Jorge</option>
+                            <option value="Pauline">Pauline</option>
+                            <option value="Ambos">Both</option>
+                        </select>
+                        <button id="saveStoryBtn" class="upload-btn">
+                            <i class="fas fa-save"></i> SAVE STORY
                         </button>
                     </div>
                 `;
@@ -1312,8 +1641,8 @@
                 const content = document.getElementById('storyContent').value;
                 const author = document.getElementById('storyAuthor').value;
                 
-                if (!title.trim() || !content.trim()) {
-                    alert('Por favor, completa el título y el contenido de la historia');
+                if (!title || !content) {
+                    alert('Please fill all fields!');
                     return;
                 }
                 
@@ -1328,51 +1657,11 @@
                 this.storage.saveStory(story);
                 this.loadStories();
                 this.updateStorageInfo();
+                this.showNotification(`📖 Story "${title}" saved!`, 'success');
                 
-                this.showAlert(this.elements.uploadStatus, 
-                    `✅ Historia "${title}" guardada exitosamente`, 'success');
-                this.showAlert(this.elements.storyAlert, 
-                    `Nueva historia añadida por ${author}`, 'success');
-                
-                // Cambiar a sección de historias después de 2 segundos
                 setTimeout(() => {
                     document.querySelector('[data-section="historias"]').click();
-                }, 2000);
-            }
-            
-            deletePhoto(id) {
-                this.storage.deletePhoto(id);
-                this.loadPhotos();
-                this.updateStorageInfo();
-                this.showAlert(this.elements.photoAlert, 'Foto eliminada exitosamente', 'success');
-            }
-            
-            deleteSong(id) {
-                this.storage.deleteSong(id);
-                this.loadSongs();
-                this.updateStorageInfo();
-                this.showAlert(this.elements.musicAlert, 'Canción eliminada exitosamente', 'success');
-            }
-            
-            deleteStory(id) {
-                this.storage.deleteStory(id);
-                this.loadStories();
-                this.updateStorageInfo();
-                this.showAlert(this.elements.storyAlert, 'Historia eliminada exitosamente', 'success');
-            }
-            
-            setupMusicPlayer() {
-                // Configurar eventos del reproductor
-                this.elements.audioPlayer.addEventListener('ended', () => {
-                    // Avanzar a la siguiente canción
-                    const songs = this.storage.getSongs();
-                    const currentIndex = songs.findIndex(song => 
-                        song.src === this.elements.audioPlayer.src);
-                    
-                    if (currentIndex < songs.length - 1) {
-                        this.playSong(songs[currentIndex + 1]);
-                    }
-                });
+                }, 1500);
             }
             
             setCurrentSong(song) {
@@ -1380,11 +1669,10 @@
                 this.elements.currentSongElement.textContent = `${song.title} - ${song.artist}`;
             }
             
-            playSong(song, element = null) {
+            playSong(song, element) {
                 this.setCurrentSong(song);
                 this.elements.audioPlayer.play();
                 
-                // Actualizar elemento activo
                 document.querySelectorAll('.song-item').forEach(item => {
                     item.classList.remove('active');
                 });
@@ -1392,6 +1680,24 @@
                 if (element) {
                     element.classList.add('active');
                 }
+                
+                // Efecto visual
+                if (element) {
+                    element.style.animation = 'none';
+                    setTimeout(() => {
+                        element.style.animation = '';
+                    }, 10);
+                }
+            }
+            
+            setupMusicPlayer() {
+                this.elements.audioPlayer.addEventListener('ended', () => {
+                    const songs = this.storage.getSongs();
+                    const currentIndex = songs.findIndex(song => song.src === this.elements.audioPlayer.src);
+                    if (currentIndex < songs.length - 1) {
+                        this.playSong(songs[currentIndex + 1]);
+                    }
+                });
             }
             
             setupImageModal() {
@@ -1413,62 +1719,52 @@
             }
             
             setupBackupButtons() {
-                // Exportar datos
                 this.elements.exportBtn.addEventListener('click', () => {
                     const data = this.storage.exportData();
                     const blob = new Blob([data], { type: 'application/json' });
                     const url = URL.createObjectURL(blob);
-                    
                     const a = document.createElement('a');
                     a.href = url;
-                    a.download = `album-jorge-pauline-${new Date().toISOString().split('T')[0]}.json`;
+                    a.download = `rock-album-backup-${new Date().toISOString().split('T')[0]}.json`;
                     document.body.appendChild(a);
                     a.click();
                     document.body.removeChild(a);
                     URL.revokeObjectURL(url);
                     
-                    this.showAlert(this.elements.configAlert, 'Datos exportados exitosamente', 'success');
+                    this.showNotification('💾 Backup exported!', 'success');
                 });
                 
-                // Importar datos
                 this.elements.importBtn.addEventListener('click', () => {
                     const input = document.createElement('input');
                     input.type = 'file';
                     input.accept = '.json';
-                    
                     input.onchange = (e) => {
                         const file = e.target.files[0];
                         const reader = new FileReader();
-                        
                         reader.onload = (e) => {
-                            const success = this.storage.importData(e.target.result);
-                            
-                            if (success) {
+                            if (this.storage.importData(e.target.result)) {
                                 this.loadPhotos();
                                 this.loadSongs();
                                 this.loadStories();
                                 this.updateStorageInfo();
-                                this.showAlert(this.elements.configAlert, 'Datos importados exitosamente', 'success');
+                                this.showNotification('📂 Backup imported!', 'success');
                             } else {
-                                this.showAlert(this.elements.configAlert, 'Error al importar datos', 'error');
+                                this.showNotification('❌ Invalid backup file', 'error');
                             }
                         };
-                        
                         reader.readAsText(file);
                     };
-                    
                     input.click();
                 });
                 
-                // Limpiar todo
                 this.elements.clearBtn.addEventListener('click', () => {
-                    if (confirm('¿ESTÁS SEGURO? Esto eliminará todas las fotos, canciones e historias y restaurará los datos por defecto.')) {
+                    if (confirm('⚠️ WARNING: This will delete ALL data and restore defaults. Continue?')) {
                         this.storage.clearAll();
                         this.loadPhotos();
                         this.loadSongs();
                         this.loadStories();
                         this.updateStorageInfo();
-                        this.showAlert(this.elements.configAlert, 'Todos los datos han sido restablecidos', 'success');
+                        this.showNotification('🔄 Data reset to defaults', 'info');
                     }
                 });
             }
@@ -1476,23 +1772,148 @@
             updateStorageInfo() {
                 const info = this.storage.getStorageInfo();
                 this.elements.storageInfo.value = 
-                    `${info.photos} fotos, ${info.songs} canciones, ${info.stories} historias (${info.size})`;
+                    `${info.photos} Photos | ${info.songs} Tracks | ${info.stories} Stories | ${info.size}`;
             }
             
-            showAlert(element, message, type) {
-                element.textContent = message;
-                element.className = `alert ${type}`;
+            showNotification(message, type = 'info') {
+                const colors = {
+                    success: 'var(--neon-green)',
+                    error: 'var(--neon-pink)',
+                    info: 'var(--neon-blue)'
+                };
                 
-                // Ocultar alerta después de 5 segundos
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    right: 30px;
+                    background: rgba(10,10,10,0.95);
+                    border: 2px solid ${colors[type]};
+                    color: white;
+                    padding: 20px 30px;
+                    border-radius: 10px;
+                    font-family: 'Orbitron', sans-serif;
+                    z-index: 10000;
+                    animation: slideIn 0.3s ease;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                    max-width: 400px;
+                    backdrop-filter: blur(10px);
+                `;
+                notification.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}" 
+                           style="color: ${colors[type]}; font-size: 1.5rem;"></i>
+                        <div>${message}</div>
+                    </div>
+                `;
+                
+                document.body.appendChild(notification);
+                
                 setTimeout(() => {
-                    element.style.display = 'none';
-                }, 5000);
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => notification.remove(), 300);
+                }, 3000);
+                
+                // Agregar keyframes CSS si no existen
+                if (!document.getElementById('notification-styles')) {
+                    const style = document.createElement('style');
+                    style.id = 'notification-styles';
+                    style.textContent = `
+                        @keyframes slideIn {
+                            from { transform: translateX(100%); opacity: 0; }
+                            to { transform: translateX(0); opacity: 1; }
+                        }
+                        @keyframes slideOut {
+                            from { transform: translateX(0); opacity: 1; }
+                            to { transform: translateX(100%); opacity: 0; }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+            }
+            
+            setupCustomCursor() {
+                const cursor = document.querySelector('.cursor');
+                const follower = document.querySelector('.cursor-follower');
+                
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                    
+                    setTimeout(() => {
+                        follower.style.left = e.clientX + 'px';
+                        follower.style.top = e.clientY + 'px';
+                    }, 50);
+                });
+                
+                document.addEventListener('mousedown', () => {
+                    cursor.style.transform = 'scale(0.5)';
+                    follower.style.transform = 'scale(1.5)';
+                });
+                
+                document.addEventListener('mouseup', () => {
+                    cursor.style.transform = 'scale(1)';
+                    follower.style.transform = 'scale(1)';
+                });
+                
+                // Cambiar cursor en elementos interactivos
+                const interactive = document.querySelectorAll('button, .photo-item, .song-item, .story-card, .upload-box');
+                interactive.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        cursor.style.transform = 'scale(1.5)';
+                        cursor.style.borderColor = 'var(--neon-yellow)';
+                        follower.style.transform = 'scale(1.5)';
+                        follower.style.background = 'rgba(255, 255, 0, 0.1)';
+                    });
+                    
+                    el.addEventListener('mouseleave', () => {
+                        cursor.style.transform = 'scale(1)';
+                        cursor.style.borderColor = 'var(--neon-pink)';
+                        follower.style.transform = 'scale(1)';
+                        follower.style.background = 'rgba(255, 0, 255, 0.1)';
+                    });
+                });
+            }
+            
+            initParticles() {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 80, density: { enable: true, value_area: 800 } },
+                        color: { value: ["#ff00ff", "#00ffff", "#00ff00", "#ffff00"] },
+                        shape: { type: "circle" },
+                        opacity: { value: 0.5, random: true },
+                        size: { value: 3, random: true },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: "#ffffff",
+                            opacity: 0.2,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: 2,
+                            direction: "none",
+                            random: true,
+                            straight: false,
+                            out_mode: "out",
+                            bounce: false
+                        }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: { enable: true, mode: "repulse" },
+                            onclick: { enable: true, mode: "push" }
+                        }
+                    }
+                });
             }
         }
 
-        // Inicializar la aplicación cuando se carga la página
+        // Inicializar aplicación
         document.addEventListener('DOMContentLoaded', () => {
-            window.albumApp = new AlbumApp();
+            window.rockAlbum = new RockAlbumApp();
         });
     </script>
 </body>
